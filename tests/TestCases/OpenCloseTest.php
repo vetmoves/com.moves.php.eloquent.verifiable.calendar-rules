@@ -3,8 +3,8 @@
 namespace Tests\TestCases;
 
 use PHPUnit\Framework\TestCase;
-use Tests\Models\TestRuleOpenClose;
-use Tests\Models\TestVerifiableOpenClose;
+use Tests\Models\Rules\TestRuleOpenClose;
+use Tests\Models\Verifiables\TestVerifiableOpenClose;
 
 class OpenCloseTest extends TestCase
 {

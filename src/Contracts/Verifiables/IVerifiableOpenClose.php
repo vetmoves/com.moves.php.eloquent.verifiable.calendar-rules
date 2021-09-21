@@ -11,13 +11,3 @@ interface IVerifiableOpenClose extends IVerifiable
 
     public function getEndTime(): DateTimeInterface;
 }
-
-class Appointment implements IVerifiableOpenClose {
-    public function getStartTime(): DateTimeInterface {
-        return $this->start_time;
-    }
-
-    public function getEndTime(): DateTimeInterface {
-        $this->end_time;
-    }
-}

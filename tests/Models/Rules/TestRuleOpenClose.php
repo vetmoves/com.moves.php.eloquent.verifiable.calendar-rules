@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Models;
+namespace Tests\Models\Rules;
 
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleOpenClose;
