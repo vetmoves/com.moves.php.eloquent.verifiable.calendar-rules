@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "moves/eloquent-verifiable": "^0.0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5"
@@ -27,4 +28,3 @@
         }
     }
 }
-
