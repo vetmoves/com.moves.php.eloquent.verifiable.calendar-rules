@@ -3,7 +3,7 @@
 namespace Tests\TestCases;
 
 use Moves\Eloquent\Verifiable\Contracts\IRule;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCases\TestCase;
 use Tests\Models\Rules\TestRuleMaxDuration;
 use Tests\Models\Rules\TestRuleOpenClose;
 use Tests\Models\Verifiables\TestVerifiableAllRules;
