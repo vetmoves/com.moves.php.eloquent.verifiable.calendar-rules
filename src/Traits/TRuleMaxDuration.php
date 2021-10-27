@@ -14,6 +14,10 @@ trait TRuleMaxDuration
      */
     public function verify(IVerifiable $verifiable): bool
     {
+        if ($verifiable->getDurationMinutes() < 0) {
+            throw new \Exception('');
+        }
+
         if ($verifiable->getDurationMinutes() > $this->getMaxDurationMinutes()) {
             throw new \Exception('');
         }

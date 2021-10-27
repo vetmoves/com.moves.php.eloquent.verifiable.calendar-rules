@@ -7,8 +7,16 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableMa
 
 class TestVerifiableMaxDuration implements IVerifiableMaxDuration
 {
+    /** @var int $duration */
+    protected $duration;
+
+    public function __construct(int $duration)
+    {
+        $this->duration = $duration;
+    }
+
     public function getDurationMinutes(): int
     {
-        return 90;
+        return $this->duration;
     }
 }

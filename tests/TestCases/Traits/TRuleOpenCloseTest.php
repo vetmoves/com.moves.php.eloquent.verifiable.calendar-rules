@@ -8,7 +8,7 @@ use Tests\Models\Rules\TestRuleOpenClose;
 use Tests\Models\Verifiables\TestVerifiableOpenClose;
 use Tests\TestCases\TestCase;
 
-class TOpenCloseRuleTest extends TestCase
+class TRuleOpenCloseTest extends TestCase
 {
     public function testCloseAfterOpenOnSameDayEnforced()
     {
