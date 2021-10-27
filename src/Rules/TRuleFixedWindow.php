@@ -5,7 +5,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Rules;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableWindow;
 
-trait TRuleWindow
+trait TRuleFixedWindow
 {
     use TRule;
 

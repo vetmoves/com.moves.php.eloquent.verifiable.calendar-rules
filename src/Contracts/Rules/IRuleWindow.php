@@ -5,7 +5,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules;
 
 use DateTimeInterface;
 
-interface IRuleOpenClose
+interface IRuleWindow
 {
     public function containsAppointments(): bool;
 

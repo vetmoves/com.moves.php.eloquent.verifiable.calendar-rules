@@ -2,7 +2,7 @@
 
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables;
 
-interface IVerifiableBlock
+interface IVerifiableCustomAppointment
 {
     public function getStartTime(): DateTimeInterface;
 
