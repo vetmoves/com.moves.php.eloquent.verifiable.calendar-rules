@@ -1,6 +1,6 @@
 <?php
 
-namespace Moves\Eloquent\Verifiable\Rules\Calendar\Rules;
+namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableAppointment;

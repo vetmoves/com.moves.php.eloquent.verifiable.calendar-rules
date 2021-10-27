@@ -2,7 +2,7 @@
 
 namespace Tests\Models\Rules;
 
-use Moves\Eloquent\Verifiable\Rules\Calendar\Rules\TRuleMaxDuration;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleMaxDuration;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleMaxDuration;
 
 class TestRuleMaxDuration implements IRuleMaxDuration

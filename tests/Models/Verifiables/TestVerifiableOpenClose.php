@@ -7,13 +7,25 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableOp
 
 class TestVerifiableOpenClose implements IVerifiableOpenClose
 {
+    /** @var DateTimeInterface $start */
+    protected $start;
+
+    /** @var DateTimeInterface $end */
+    protected $end;
+
+    public function __construct(DateTimeInterface $start, DateTimeInterface $end)
+    {
+        $this->start = $start;
+        $this->end = $end;
+    }
+
     public function getStartTime(): DateTimeInterface
     {
-        return new \DateTime('2021-01-01 09:00:00');
+        return $this->start;
     }
 
     public function getEndTime(): DateTimeInterface
     {
-        return new \DateTime('2021-01-01 10:00:00');
+        return $this->end;
     }
 }
