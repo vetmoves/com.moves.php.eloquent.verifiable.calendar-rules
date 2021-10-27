@@ -2,8 +2,9 @@
 
 namespace Tests\TestCases\Traits;
 
+use Carbon\Carbon;
 use Tests\Models\Rules\TestRuleMaxDuration;
-use Tests\Models\Verifiables\TestVerifiableMaxDuration;
+use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;
 
 class TRuleMaxDurationTest extends TestCase
@@ -12,7 +13,10 @@ class TRuleMaxDurationTest extends TestCase
     {
         $rule = new TestRuleMaxDuration(60);
 
-        $event = new TestVerifiableMaxDuration(15);
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 08:00:00'),
+            Carbon::create('2021-01-01 08:15:00')
+        );
 
         $this->assertTrue($rule->verify($event));
     }
@@ -21,8 +25,10 @@ class TRuleMaxDurationTest extends TestCase
     {
         $rule = new TestRuleMaxDuration(60);
 
-        $event = new TestVerifiableMaxDuration(60);
-
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 08:00:00'),
+            Carbon::create('2021-01-01 09:00:00')
+        );
         $this->assertTrue($rule->verify($event));
     }
 
@@ -30,7 +36,10 @@ class TRuleMaxDurationTest extends TestCase
     {
         $rule = new TestRuleMaxDuration(60);
 
-        $event = new TestVerifiableMaxDuration(-15);
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 08:15:00'),
+            Carbon::create('2021-01-01 08:00:00')
+        );
 
         $this->expectException(\Exception::class);
 
@@ -41,7 +50,10 @@ class TRuleMaxDurationTest extends TestCase
     {
         $rule = new TestRuleMaxDuration(60);
 
-        $event = new TestVerifiableMaxDuration(61);
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 08:00:00'),
+            Carbon::create('2021-01-01 09:01:00')
+        );
 
         $this->expectException(\Exception::class);
 

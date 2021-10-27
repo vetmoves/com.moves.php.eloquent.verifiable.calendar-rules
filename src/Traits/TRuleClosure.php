@@ -4,12 +4,12 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableOpenClose;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
-trait TRuleOpenClose
+trait TRuleClosure
 {
     /**
-     * @param IVerifiableOpenClose $verifiable
+     * @param IVerifiableEvent $verifiable
      * @return bool
      * @throws \Exception
      */
@@ -23,22 +23,22 @@ trait TRuleOpenClose
             throw new \Exception('');
         }
 
-        $open = Carbon::create($this->getOpenTime())
+        $closureStart = Carbon::create($this->getStartTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $close = Carbon::create($this->getCloseTime())
+        $closureEnd = Carbon::create($this->getEndTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
-        if ($close < $open) {
+        if ($closureEnd < $closureStart) {
             throw new \Exception('');
         }
 
         $pattern = $this->getRecurrencePattern();
 
         if (
-            (!is_null($pattern) && !$pattern->includes($eventStart))
-            || $eventStart < $open
-            || $eventEnd > $close
-        ) {
+            (is_null($pattern) || $pattern->includes($eventStart))
+            && ($eventStart < $closureEnd && $eventEnd > $closureStart)
+        )
+        {
             throw new \Exception('');
         }
 

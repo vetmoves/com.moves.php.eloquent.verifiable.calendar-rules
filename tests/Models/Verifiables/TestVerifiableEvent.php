@@ -3,9 +3,9 @@
 namespace Tests\Models\Verifiables;
 
 use DateTimeInterface;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableOpenClose;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
-class TestVerifiableOpenClose implements IVerifiableOpenClose
+class TestVerifiableEvent implements IVerifiableEvent
 {
     /** @var DateTimeInterface $start */
     protected $start;

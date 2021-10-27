@@ -5,7 +5,7 @@ namespace Tests\TestCases\Traits;
 use Carbon\Carbon;
 use Moves\FowlerRecurringEvents\TemporalExpressions\TEDays;
 use Tests\Models\Rules\TestRuleOpenClose;
-use Tests\Models\Verifiables\TestVerifiableOpenClose;
+use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;
 
 class TRuleOpenCloseTest extends TestCase
@@ -17,7 +17,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 08:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 10:00:00'),
             Carbon::create('2021-01-01 11:00:00')
         );
@@ -31,7 +31,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-02 08:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 10:00:00'),
             Carbon::create('2021-01-01 11:00:00')
         );
@@ -48,7 +48,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 10:00:00'),
             Carbon::create('2021-01-01 11:00:00')
         );
@@ -63,7 +63,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 11:00:00'),
             Carbon::create('2021-01-01 10:00:00')
         );
@@ -81,7 +81,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 10:00:00'),
             Carbon::create('2021-01-02 11:00:00')
         );
@@ -97,7 +97,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))->setFrequency(2)
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 10:00:00'),
             Carbon::create('2021-01-02 11:00:00')
         );
@@ -114,7 +114,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 08:00:00'),
             Carbon::create('2021-01-01 09:00:00')
         );
@@ -130,7 +130,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 08:00:00'),
             Carbon::create('2021-01-02 09:00:00')
         );
@@ -145,7 +145,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 06:00:00'),
             Carbon::create('2021-01-01 07:00:00')
         );
@@ -164,7 +164,7 @@ class TRuleOpenCloseTest extends TestCase
 
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 06:00:00'),
             Carbon::create('2021-01-02 07:00:00')
         );
@@ -181,7 +181,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 07:30:00'),
             Carbon::create('2021-01-01 08:30:00')
         );
@@ -199,7 +199,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 07:30:00'),
             Carbon::create('2021-01-02 08:30:00')
         );
@@ -218,7 +218,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 16:00:00'),
             Carbon::create('2021-01-01 17:00:00')
         );
@@ -234,7 +234,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 16:00:00'),
             Carbon::create('2021-01-02 17:00:00')
         );
@@ -249,7 +249,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 18:00:00'),
             Carbon::create('2021-01-01 19:00:00')
         );
@@ -268,7 +268,7 @@ class TRuleOpenCloseTest extends TestCase
 
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 18:00:00'),
             Carbon::create('2021-01-02 19:00:00')
         );
@@ -285,7 +285,7 @@ class TRuleOpenCloseTest extends TestCase
             Carbon::create('2021-01-01 17:00:00')
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-01 16:30:00'),
             Carbon::create('2021-01-01 17:30:00')
         );
@@ -303,7 +303,7 @@ class TRuleOpenCloseTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableOpenClose(
+        $event = new TestVerifiableEvent(
             Carbon::create('2021-01-02 16:30:00'),
             Carbon::create('2021-01-02 17:30:00')
         );
