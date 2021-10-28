@@ -18,12 +18,12 @@ class EventWindow
         $this->end = $end;
     }
 
-    public function getStart(): DateTimeInterface
+    public function getStartTime(): DateTimeInterface
     {
         return $this->start;
     }
 
-    public function getEnd(): DateTimeInterface
+    public function getEndTime(): DateTimeInterface
     {
         return $this->end;
     }

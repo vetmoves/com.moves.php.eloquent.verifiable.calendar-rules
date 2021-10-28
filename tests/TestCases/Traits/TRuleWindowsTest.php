@@ -22,29 +22,29 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(8, $windows);
 
-        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 16:00:00', $windows[7]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 17:00:00', $windows[7]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[7]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 17:00:00', $windows[7]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsNoBufferNoEventsWithRecurrence()
@@ -63,29 +63,29 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(8, $windows);
 
-        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 16:00:00', $windows[7]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 17:00:00', $windows[7]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[7]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 17:00:00', $windows[7]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithBufferNoEvents_BufferNotApplied()
@@ -102,29 +102,29 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(8, $windows);
 
-        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 16:00:00', $windows[7]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 17:00:00', $windows[7]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[7]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 17:00:00', $windows[7]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithAlwaysBufferNoEvents_BufferIsApplied()
@@ -142,20 +142,20 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(5, $windows);
 
-        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 10:30:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:30:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:30:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:30:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 13:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 13:30:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 14:30:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:30:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:30:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[4]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithBufferNoEventsWithRecurrence_BufferNotApplied()
@@ -175,29 +175,29 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(8, $windows);
 
-        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 16:00:00', $windows[7]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 17:00:00', $windows[7]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[7]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 17:00:00', $windows[7]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsNoBufferWithEvents_WindowNotAddedAndBufferNotApplied()
@@ -224,23 +224,23 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(6, $windows);
 
-        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 12:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 13:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 14:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 16:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 17:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 17:00:00', $windows[5]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsNoBufferWithEventsWithRecurrence_WindowNotAddedAndBufferNotApplied()
@@ -276,23 +276,23 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(6, $windows);
 
-        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 11:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 12:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 13:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 14:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 14:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 15:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 15:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 16:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 16:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 17:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 17:00:00', $windows[5]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithBufferWithEvents_WindowNotAddedAndBufferIsApplied()
@@ -319,17 +319,17 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(4, $windows);
 
-        $this->assertEquals('2021-01-01 10:30:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:30:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:30:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:30:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 16:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 17:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 17:00:00', $windows[3]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithAlwaysBufferWithEvents_WindowNotAddedAndBufferIsAlwaysApplied()
@@ -356,14 +356,14 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(3, $windows);
 
-        $this->assertEquals('2021-01-01 10:30:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:30:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:30:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:30:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:30:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:30:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:30:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:30:00', $windows[2]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithBufferWithEventsWithRecurrence_WindowNotAddedAndBufferIsApplied()
@@ -399,17 +399,17 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(4, $windows);
 
-        $this->assertEquals('2021-01-02 10:30:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 11:30:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:30:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:30:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 14:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 15:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 15:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 16:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 16:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 17:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 17:00:00', $windows[3]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithOverlappingCloseTime_WindowNotAdded()
@@ -424,26 +424,26 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(7, $windows);
 
-        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
     }
 
     public function testWindowsWithOverlappingCloseTimeWithRecurrence_WindowNotAdded()
@@ -462,26 +462,26 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertCount(7, $windows);
 
-        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 09:00:00', $windows[0]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[0]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 10:00:00', $windows[1]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[1]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 11:00:00', $windows[2]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[2]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 12:00:00', $windows[3]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[3]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 13:00:00', $windows[4]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[4]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 14:00:00', $windows[5]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[5]->getEndTime()->toDateTimeString());
 
-        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStart()->toDateTimeString());
-        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEnd()->toDateTimeString());
+        $this->assertEquals('2021-01-02 15:00:00', $windows[6]->getStartTime()->toDateTimeString());
+        $this->assertEquals('2021-01-02 16:00:00', $windows[6]->getEndTime()->toDateTimeString());
     }
 
     public function testDateOutsideRecurrence_NoWindowsAdded()
@@ -499,5 +499,41 @@ class TRuleWindowsTest extends TestCase
         $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(0, $windows);
+    }
+
+    public function testEventMatchesValidWindow_Passes()
+    {
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 17:00:00'),
+            60
+        );
+
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 10:00:00'),
+        );
+
+        $this->assertTrue($rule->verify($event));
+    }
+
+    public function testEventMatchesValidWindowWithRecurrence_Passes()
+    {
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 17:00:00'),
+            60,
+            0,
+            false,
+            [],
+            TEDays::build(Carbon::create('2021-01-01'))
+        );
+
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-02 09:00:00'),
+            Carbon::create('2021-01-02 10:00:00'),
+        );
+
+        $this->assertTrue($rule->verify($event));
     }
 }

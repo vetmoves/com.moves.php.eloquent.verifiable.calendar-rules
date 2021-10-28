@@ -5,6 +5,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 use Carbon\Carbon;
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Support\EventWindow;
 
 trait TRuleWindows
@@ -75,8 +76,28 @@ trait TRuleWindows
         return $windows;
     }
 
+    /**
+     * @param IVerifiable $verifiable
+     * @return bool
+     * @throws \Exception
+     */
     public function verify(IVerifiable $verifiable): bool
     {
+        $availableWindows = $this->getAvailableWindowsForDate($verifiable->getStartTime());
 
+        $dateFormat = 'Y-m-d H:i:s';
+
+        foreach ($availableWindows as $window)
+        {
+            if (
+                $window->getStartTime()->format($dateFormat) === $verifiable->getStartTime()->format($dateFormat)
+                && $window->getEndTime()->format($dateFormat) === $verifiable->getEndTime()->format($dateFormat)
+            )
+            {
+                return true;
+            }
+        }
+
+        throw new \Exception('');
     }
 }
