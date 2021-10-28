@@ -536,4 +536,26 @@ class TRuleWindowsTest extends TestCase
 
         $this->assertTrue($rule->verify($event));
     }
+
+    public function testEventNoMatchValidWindow_Fails()
+    {
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 17:00:00'),
+            60,
+            0,
+            false,
+            [],
+            TEDays::build(Carbon::create('2021-01-01'))
+        );
+
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-02 09:30:00'),
+            Carbon::create('2021-01-02 10:30:00'),
+        );
+
+        $this->expectException(\Exception::class);
+
+        $rule->verify($event);
+    }
 }

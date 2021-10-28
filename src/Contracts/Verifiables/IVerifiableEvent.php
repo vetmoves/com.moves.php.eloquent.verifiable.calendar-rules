@@ -10,4 +10,9 @@ interface IVerifiableEvent extends IVerifiable
     public function getStartTime(): DateTimeInterface;
 
     public function getEndTime(): DateTimeInterface;
+
+    /**
+     * @return IVerifiableEventAttendee[]
+     */
+    public function getAttendees(): array;
 }

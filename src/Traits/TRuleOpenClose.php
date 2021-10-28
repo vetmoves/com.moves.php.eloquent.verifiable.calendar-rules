@@ -4,12 +4,12 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableOpenClose;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
 trait TRuleOpenClose
 {
     /**
-     * @param IVerifiableOpenClose $verifiable
+     * @param IVerifiableEvent $verifiable
      * @return bool
      * @throws \Exception
      */
