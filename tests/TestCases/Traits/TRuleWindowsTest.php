@@ -54,6 +54,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             0,
+            false,
             [],
             TEDays::build(Carbon::create('2021-01-01'))
         );
@@ -126,6 +127,37 @@ class TRuleWindowsTest extends TestCase
         $this->assertEquals('2021-01-01 17:00:00', $windows[7]->getEnd()->toDateTimeString());
     }
 
+    public function testWindowsWithAlwaysBufferNoEvents_BufferIsApplied()
+    {
+
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 17:00:00'),
+            60,
+            30,
+            true
+        );
+
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
+
+        $this->assertCount(5, $windows);
+
+        $this->assertEquals('2021-01-01 09:00:00', $windows[0]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[0]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 10:30:00', $windows[1]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:30:00', $windows[1]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 12:00:00', $windows[2]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[2]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 13:30:00', $windows[3]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:30:00', $windows[3]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 15:00:00', $windows[4]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[4]->getEnd()->toDateTimeString());
+    }
+
     public function testWindowsWithBufferNoEventsWithRecurrence_BufferNotApplied()
     {
 
@@ -134,6 +166,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             30,
+            false,
             [],
             TEDays::build(Carbon::create('2021-01-01'))
         );
@@ -174,6 +207,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             0,
+            false,
             [
                 new TestVerifiableEvent(
                     Carbon::create('2021-01-01 09:00:00'),
@@ -216,6 +250,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             0,
+            false,
             [
                 new TestVerifiableEvent(
                     Carbon::create('2021-01-01 11:00:00'),
@@ -267,6 +302,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             30,
+            false,
             [
                 new TestVerifiableEvent(
                     Carbon::create('2021-01-01 09:00:00'),
@@ -296,6 +332,40 @@ class TRuleWindowsTest extends TestCase
         $this->assertEquals('2021-01-01 17:00:00', $windows[3]->getEnd()->toDateTimeString());
     }
 
+    public function testWindowsWithAlwaysBufferWithEvents_WindowNotAddedAndBufferIsAlwaysApplied()
+    {
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 09:00:00'),
+            Carbon::create('2021-01-01 17:00:00'),
+            60,
+            30,
+            true,
+            [
+                new TestVerifiableEvent(
+                    Carbon::create('2021-01-01 09:00:00'),
+                    Carbon::create('2021-01-01 10:00:00')
+                ),
+                new TestVerifiableEvent(
+                    Carbon::create('2021-01-01 12:30:00'),
+                    Carbon::create('2021-01-01 13:30:00')
+                )
+            ]
+        );
+
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
+
+        $this->assertCount(3, $windows);
+
+        $this->assertEquals('2021-01-01 10:30:00', $windows[0]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:30:00', $windows[0]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 14:00:00', $windows[1]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[1]->getEnd()->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 15:30:00', $windows[2]->getStart()->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:30:00', $windows[2]->getEnd()->toDateTimeString());
+    }
+
     public function testWindowsWithBufferWithEventsWithRecurrence_WindowNotAddedAndBufferIsApplied()
     {
         $rule = new TestRuleWindows(
@@ -303,6 +373,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 17:00:00'),
             60,
             30,
+            false,
             [
                 new TestVerifiableEvent(
                     Carbon::create('2021-01-01 10:00:00'),
@@ -382,6 +453,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 16:30:00'),
             60,
             0,
+            false,
             [],
             TEDays::build(Carbon::create('2021-01-01'))
         );
@@ -419,6 +491,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-01 16:30:00'),
             60,
             0,
+            false,
             [],
             TEDays::build(Carbon::create('2021-01-01'))->setFrequency(2)
         );

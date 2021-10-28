@@ -20,6 +20,8 @@ interface IRuleWindows extends IRule
 
     public function getWindowBufferDurationMinutes(): int;
 
+    public function getAlwaysApplyBuffer(): bool;
+
     /**
      * @param DateTimeInterface $date
      * @return IVerifiableEvent[]

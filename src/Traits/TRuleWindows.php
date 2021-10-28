@@ -65,6 +65,10 @@ trait TRuleWindows
                 }
 
                 $currentTime = $windowEnd->copy();
+
+                if ($this->getAlwaysApplyBuffer()) {
+                    $currentTime->addMinutes($bufferDuration);
+                }
             }
         }
 

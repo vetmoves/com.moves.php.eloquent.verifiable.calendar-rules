@@ -24,6 +24,9 @@ class TestRuleWindows implements IRuleWindows
     /** @var int $bufferDuration */
     protected $bufferDuration;
 
+    /** @var bool $alwaysApplyBuffer */
+    protected $alwaysApplyBuffer;
+
     /** @var IVerifiableEvent[] $scheduledEvents */
     protected $scheduledEvents;
 
@@ -35,6 +38,7 @@ class TestRuleWindows implements IRuleWindows
         DateTimeInterface $close,
         int $windowDuration,
         int $bufferDuration = 0,
+        bool $alwaysApplyBuffer = false,
         array $scheduledEvents = [],
         ?ACTemporalExpression $pattern = null
     )
@@ -43,6 +47,7 @@ class TestRuleWindows implements IRuleWindows
         $this->close = $close;
         $this->windowDuration = $windowDuration;
         $this->bufferDuration = $bufferDuration;
+        $this->alwaysApplyBuffer = $alwaysApplyBuffer;
         $this->scheduledEvents = $scheduledEvents;
         $this->pattern = $pattern;
     }
@@ -70,6 +75,11 @@ class TestRuleWindows implements IRuleWindows
     public function getWindowBufferDurationMinutes(): int
     {
         return $this->bufferDuration;
+    }
+
+    public function getAlwaysApplyBuffer(): bool
+    {
+        return $this->alwaysApplyBuffer;
     }
 
     public function getScheduledEventsForDate(DateTimeInterface $date): array
