@@ -3,6 +3,7 @@
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules;
 
 use DateTimeInterface;
+use Moves\Eloquent\Verifiable\Contracts\IRule;
 use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
 /**
@@ -12,7 +13,7 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
  * Close time is currently limited to occur after open time on the same calendar date.
  * That is, close time after midnight is not currently supported.
  */
-interface IRuleClosure
+interface IRuleClosure extends IRule
 {
     public function getStartTime(): DateTimeInterface;
 

@@ -2,7 +2,9 @@
 
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules;
 
-interface IRuleMaxDuration
+use Moves\Eloquent\Verifiable\Contracts\IRule;
+
+interface IRuleMaxDuration extends IRule
 {
     public function getMaxDurationMinutes(): int;
 }
