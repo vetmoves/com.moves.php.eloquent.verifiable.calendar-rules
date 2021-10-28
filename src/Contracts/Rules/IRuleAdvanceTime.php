@@ -18,7 +18,7 @@ use Moves\Eloquent\Verifiable\Contracts\IRule;
  * i.e. Actual advance time must be "greater than' (ie positive) or equal to the configured advance requirement.
  * e.g 60 advance minutes means events must be booked at least 60 minutes in advance.
  */
-interface IRuleAdvance extends IRule
+interface IRuleAdvanceTime extends IRule
 {
     public function getAdvanceMinutes(): int;
 }

@@ -3,12 +3,12 @@
 namespace Tests\Models\Rules;
 
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleAdvance;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleAdvance;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleAdvanceTime;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleAdvanceTime;
 
-class TestRuleAdvance implements IRuleAdvance
+class TestRuleAdvanceTime implements IRuleAdvanceTime
 {
-    use TRuleAdvance;
+    use TRuleAdvanceTime;
 
     /** @var int $advance */
     protected $advance;
