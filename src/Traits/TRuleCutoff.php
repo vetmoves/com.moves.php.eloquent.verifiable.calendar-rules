@@ -3,10 +3,12 @@
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
+use DateInterval;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Support\Formatter;
 
 trait TRuleCutoff
 {
@@ -23,13 +25,29 @@ trait TRuleCutoff
 
         $cutoffHasPassed = $cutoffTime <= Carbon::now();
 
-        $humanReadableCutoffTime = $cutoffTime->format("M j, 'y g:i A");
+        $fmtCutoffTime = $cutoffTime->format(
+            __('verifiable_calendar_rules.formats.cutoff.date')
+        );
+
+        $cutoffOffsetInterval = new DateInterval("PT{$this->getCutoffOffsetMinutes()}M");
+        $fmtCutoffOffsetInterval = Formatter::formatInterval($cutoffOffsetInterval);
+
+        $fmtEventStart = $startTime->format(
+            __('verifiable_calendar_rules.formats.cutoff.event.date.start')
+        );
+        $fmtEventEnd = $verifiable->getEndTime()->format(
+            __('verifiable_calendar_rules.formats.cutoff.event.date.end')
+        );
 
         if ($cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::DISALLOW()) )
         {
-
             throw new VerificationRuleException(
-                "Booking for this period ended at {$humanReadableCutoffTime}.",
+                __('verifiable_calendar_rules.messages.cutoff.disallow', [
+                    'cutoff_time' => $fmtCutoffTime,
+                    'cutoff_offset' => $fmtCutoffOffsetInterval,
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd
+                ]),
                 $this
             );
         }
@@ -37,7 +55,12 @@ trait TRuleCutoff
         if (!$cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::ALLOW()))
         {
             throw new VerificationRuleException(
-                "Booking for this period opens at {$humanReadableCutoffTime}.",
+                __('verifiable_calendar_rules.messages.cutoff.allow', [
+                    'cutoff_time' => $fmtCutoffTime,
+                    'cutoff_offset' => $fmtCutoffOffsetInterval,
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd
+                ]),
                 $this
             );
         }

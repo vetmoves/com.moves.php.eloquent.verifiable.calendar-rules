@@ -34,11 +34,17 @@ trait TRuleMaxDuration
         $duration = $eventStart->diffInMinutes($eventEnd);
 
         if ($duration > $this->getMaxDurationMinutes()) {
-            $interval = new DateInterval("PT{$this->getMaxDurationMinutes()}M");
-            $humanReadableInterval = Formatter::formatInterval($interval);
+            $configuredInterval = new DateInterval("PT{$this->getMaxDurationMinutes()}M");
+            $fmtConfiguredInterval = Formatter::formatInterval($configuredInterval);
+
+            $actualInterval = new DateInterval("PT{$duration}M");
+            $fmtActualInterval = Formatter::formatInterval($actualInterval);
 
             throw new VerificationRuleException(
-                "This event cannot be longer than {$humanReadableInterval}.",
+                __('verifiable_calendar_rules.messages.max_duration', [
+                    'expected' => $fmtConfiguredInterval,
+                    'actual' => $fmtActualInterval
+                ]),
                 $this
             );
         }

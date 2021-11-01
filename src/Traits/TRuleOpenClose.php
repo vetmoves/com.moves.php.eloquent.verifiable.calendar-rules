@@ -22,9 +22,19 @@ trait TRuleOpenClose
         $eventEnd = Carbon::create($verifiable->getEndTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
+        $fmtEventStart = $eventStart->format(
+            __('verifiable_calendar_rules.formats.open_close.event.date.start')
+        );
+        $fmtEventEnd = $eventEnd->format(
+            __('verifiable_calendar_rules.formats.open_close.event.date.end')
+        );
+
         if ($eventEnd < $eventStart) {
             throw new VerifiableConfigurationException(
-                'Event end time must be after event start time.',
+                __('verifiable_calendar_rules.messages.config.event.start_end_time', [
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd
+                ]),
                 $verifiable
             );
         }
@@ -34,9 +44,19 @@ trait TRuleOpenClose
         $close = Carbon::create($this->getCloseTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
+        $fmtOpenTime = $open->format(
+            __('verifiable_calendar_rules.formats.open_close.date.open')
+        );
+        $fmtCloseTime = $close->format(
+            __('verifiable_calendar_rules.formats.open_close.date.close')
+        );
+
         if ($close < $open) {
             throw new VerifiableRuleConfigurationException(
-                'Open time must be before Close time',
+                __('verifiable_calendar_rules.messages.config.rule.open_close_time', [
+                    'open_time' => $fmtOpenTime,
+                    'close_time' => $fmtCloseTime
+                ]),
                 $this
             );
         }
@@ -48,11 +68,13 @@ trait TRuleOpenClose
             || $eventStart < $open
             || $eventEnd > $close
         ) {
-            $formattedOpenTime = $open->format('g:i A');
-            $formattedCloseTime = $close->format('g:i A');
-
             throw new VerificationRuleException(
-                "This event must be booked between {$formattedOpenTime} and {$formattedCloseTime}.",
+                __('verifiable_calendar_rules.messages.open_close', [
+                    'open_time' => $fmtOpenTime,
+                    'close_time' => $fmtCloseTime,
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd,
+                ]),
                 $this
             );
         }

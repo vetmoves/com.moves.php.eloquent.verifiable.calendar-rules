@@ -4,7 +4,6 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
 use DateInterval;
-use Illuminate\Support\Str;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
@@ -24,17 +23,35 @@ trait TRuleAdvanceTime
         $now = Carbon::now();
         $actualAdvanceMinutes = $now->diffInMilliseconds($verifiable->getStartTime(), false) / 60000.0;
 
+        $configuredInterval = new DateInterval("PT{$configuredAdvanceMinutes}M");
+        $fmtConfiguredInterval = Formatter::formatInterval($configuredInterval);
+
+        $actualInterval = new DateInterval('PT' . intval($actualAdvanceMinutes) . 'M');
+        $fmtActualInterval = Formatter::formatInterval($actualInterval);
+
         if ($this->getAdvanceType()->equals(AdvanceType::MIN())
-            ? $actualAdvanceMinutes < $configuredAdvanceMinutes
-            : $actualAdvanceMinutes > abs($configuredAdvanceMinutes)
+            && $actualAdvanceMinutes < $configuredAdvanceMinutes
         )
         {
-            $advanceType = $this->getAdvanceType();
-            $interval = new DateInterval("PT{$configuredAdvanceMinutes}M");
-            $humanReadableInterval = Formatter::formatInterval($interval);
-
             throw new VerificationRuleException(
-                "This event can only be booked a {$advanceType} of {$humanReadableInterval} in advance.",
+                __('verifiable_calendar_rules.messages.advance.min', [
+                    'expected' => $fmtConfiguredInterval,
+                    'actual' => $fmtActualInterval
+                ]),
+                $this
+            );
+        }
+
+        if (
+            $this->getAdvanceType()->equals(AdvanceType::MAX())
+            && $actualAdvanceMinutes > abs($configuredAdvanceMinutes)
+        )
+        {
+            throw new VerificationRuleException(
+                __('verifiable_calendar_rules.messages.advance.max', [
+                    'expected' => $fmtConfiguredInterval,
+                    'actual' => $fmtActualInterval
+                ]),
                 $this
             );
         }

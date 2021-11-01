@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Support\EventWindow;
 
 trait TRuleWindows
@@ -77,7 +78,7 @@ trait TRuleWindows
     }
 
     /**
-     * @param IVerifiable $verifiable
+     * @param IVerifiableEvent $verifiable
      * @return bool
      * @throws \Exception
      */
@@ -98,8 +99,27 @@ trait TRuleWindows
             }
         }
 
+        $fmtOpenTime = $this->getOpenTime()->format(
+            __('verifiable_calendar_rules.formats.windows.date.open')
+        );
+        $fmtCloseTime = $this->getCloseTime()->format(
+            __('verifiable_calendar_rules.formats.windows.date.close')
+        );
+
+        $fmtEventStart = $verifiable->getStartTime()->format(
+            __('verifiable_calendar_rules.formats.windows.event.date.start')
+        );
+        $fmtEventEnd = $verifiable->getEndTime()->format(
+            __('verifiable_calendar_rules.formats.windows.event.date.end')
+        );
+
         throw new VerificationRuleException(
-            'This event can only be reserved during one of the available event windows.',
+            __('verifiable_calendar_rules.messages.windows', [
+                'open_time' => $fmtOpenTime,
+                'close_time' => $fmtCloseTime,
+                'event_start' => $fmtEventStart,
+                'event_end' => $fmtEventEnd
+            ]),
             $this
         );
     }
