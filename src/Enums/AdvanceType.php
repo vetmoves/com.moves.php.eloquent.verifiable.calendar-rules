@@ -13,6 +13,6 @@ use Konekt\Enum\Enum;
  */
 class AdvanceType extends Enum
 {
-    const MIN = 'Minimum';
-    const MAX = 'Maximum';
+    const MIN = 'minimum';
+    const MAX = 'maximum';
 }

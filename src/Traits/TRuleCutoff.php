@@ -4,6 +4,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
@@ -21,11 +22,24 @@ trait TRuleCutoff
         $cutoffTime = $cutoffPeriodStart->subMinutes($this->getCutoffOffsetMinutes());
 
         $cutoffHasPassed = $cutoffTime <= Carbon::now();
-        $cutoffDisallow = $this->getCutoffType()->equals(CutoffType::DISALLOW());
 
-        //If cutoff has passed and type is to disallow, OR cutoff has not passed and type is to allow...
-        if ($cutoffHasPassed == $cutoffDisallow) {
-            throw new \Exception('');
+        $humanReadableCutoffTime = $cutoffTime->format("M j, 'y g:i A");
+
+        if ($cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::DISALLOW()) )
+        {
+
+            throw new VerificationRuleException(
+                "Booking for this period ended at {$humanReadableCutoffTime}.",
+                $this
+            );
+        }
+
+        if (!$cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::ALLOW()))
+        {
+            throw new VerificationRuleException(
+                "Booking for this period opens at {$humanReadableCutoffTime}.",
+                $this
+            );
         }
 
         return true;

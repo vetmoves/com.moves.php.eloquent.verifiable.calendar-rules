@@ -3,6 +3,9 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerifiableConfigurationException;
+use Moves\Eloquent\Verifiable\Exceptions\VerifiableRuleConfigurationException;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\FowlerRecurringEvents\TemporalExpressions\TEDays;
 use Tests\Models\Rules\TestRuleClosure;
 use Tests\Models\Verifiables\TestVerifiableEvent;
@@ -22,7 +25,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 11:00:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerifiableRuleConfigurationException::class);
 
         $rule->verify($event);
 
@@ -36,7 +39,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 11:00:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerifiableRuleConfigurationException::class);
 
         $rule->verify($event);
     }
@@ -53,7 +56,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 12:45:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
 
@@ -71,7 +74,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 10:00:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerifiableConfigurationException::class);
 
         $rule->verify($event);
     }
@@ -89,7 +92,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-02 12:45:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -122,7 +125,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 12:15:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -140,7 +143,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-02 12:15:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -189,7 +192,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 12:30:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -207,7 +210,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-02 12:30:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -225,12 +228,12 @@ class TRuleClosureTest extends TestCase
         );
 
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
 
-    public function testEventAtEndOfClosureWithRecurrencePasses()
+    public function testEventAtEndOfClosureWithRecurrenceFails()
     {
         $rule = new TestRuleClosure(
             Carbon::create('2021-01-01 12:00:00'),
@@ -244,7 +247,7 @@ class TRuleClosureTest extends TestCase
         );
 
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -293,7 +296,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-01 13:30:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -311,7 +314,7 @@ class TRuleClosureTest extends TestCase
             Carbon::create('2021-01-02 13:30:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

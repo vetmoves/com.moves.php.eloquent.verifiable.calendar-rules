@@ -4,6 +4,9 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Carbon\Carbon;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
+use Moves\Eloquent\Verifiable\Exceptions\VerifiableConfigurationException;
+use Moves\Eloquent\Verifiable\Exceptions\VerifiableRuleConfigurationException;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
 trait TRuleOpenClose
@@ -20,7 +23,10 @@ trait TRuleOpenClose
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         if ($eventEnd < $eventStart) {
-            throw new \Exception('');
+            throw new VerifiableConfigurationException(
+                'Event end time must be after event start time.',
+                $verifiable
+            );
         }
 
         $open = Carbon::create($this->getOpenTime())
@@ -29,7 +35,10 @@ trait TRuleOpenClose
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         if ($close < $open) {
-            throw new \Exception('');
+            throw new VerifiableRuleConfigurationException(
+                'Open time must be before Close time',
+                $this
+            );
         }
 
         $pattern = $this->getRecurrencePattern();
@@ -39,7 +48,13 @@ trait TRuleOpenClose
             || $eventStart < $open
             || $eventEnd > $close
         ) {
-            throw new \Exception('');
+            $formattedOpenTime = $open->format('g:i A');
+            $formattedCloseTime = $close->format('g:i A');
+
+            throw new VerificationRuleException(
+                "This event must be booked between {$formattedOpenTime} and {$formattedCloseTime}.",
+                $this
+            );
         }
 
         return true;

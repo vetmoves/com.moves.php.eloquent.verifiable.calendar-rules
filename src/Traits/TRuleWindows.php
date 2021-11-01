@@ -5,7 +5,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 use Carbon\Carbon;
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Support\EventWindow;
 
 trait TRuleWindows
@@ -98,6 +98,9 @@ trait TRuleWindows
             }
         }
 
-        throw new \Exception('');
+        throw new VerificationRuleException(
+            'This event can only be reserved during one of the available event windows.',
+            $this
+        );
     }
 }

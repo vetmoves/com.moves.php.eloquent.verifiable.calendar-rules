@@ -3,6 +3,7 @@
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Traits;
 
 use Moves\Eloquent\Verifiable\Contracts\IVerifiable;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
 trait TRuleMaxAttendees
@@ -16,7 +17,10 @@ trait TRuleMaxAttendees
     {
         if (count($verifiable->getAttendees()) > $this->getMaxAttendees())
         {
-            throw new \Exception('');
+            throw new VerificationRuleException(
+                "This event cannot have more than {$this->getMaxAttendees()} attendees",
+                $this
+            );
         }
 
         return true;

@@ -3,6 +3,7 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\FowlerRecurringEvents\TemporalExpressions\TEDays;
 use Tests\Models\Rules\TestRuleWindows;
 use Tests\Models\Verifiables\TestVerifiableEvent;
@@ -554,7 +555,7 @@ class TRuleWindowsTest extends TestCase
             Carbon::create('2021-01-02 10:30:00'),
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

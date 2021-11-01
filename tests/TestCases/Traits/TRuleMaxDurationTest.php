@@ -3,6 +3,8 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerifiableConfigurationException;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Tests\Models\Rules\TestRuleMaxDuration;
 use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;
@@ -41,7 +43,7 @@ class TRuleMaxDurationTest extends TestCase
             Carbon::create('2021-01-01 08:00:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerifiableConfigurationException::class);
 
         $rule->verify($event);
     }
@@ -55,7 +57,7 @@ class TRuleMaxDurationTest extends TestCase
             Carbon::create('2021-01-01 09:01:00')
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

@@ -3,6 +3,7 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffPeriod;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Tests\Models\Rules\TestRuleCutoff;
@@ -62,7 +63,7 @@ class TRuleCutoffTest extends TestCase
             Carbon::tomorrow()->addHours(2)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -82,7 +83,7 @@ class TRuleCutoffTest extends TestCase
             Carbon::tomorrow()->addHours(2)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -102,7 +103,7 @@ class TRuleCutoffTest extends TestCase
             Carbon::tomorrow()->addHours(2)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -123,7 +124,7 @@ class TRuleCutoffTest extends TestCase
             Carbon::tomorrow()->addHours(2)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

@@ -3,6 +3,7 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Tests\Models\Rules\TestRuleMaxAttendees;
 use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\Models\Verifiables\TestVerifiableEventAttendee;
@@ -57,7 +58,7 @@ class TRuleMaxAttendeesTest extends TestCase
             ]
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

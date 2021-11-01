@@ -3,6 +3,7 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
 use Tests\Models\Rules\TestRuleAdvanceTime;
 use Tests\Models\Verifiables\TestVerifiableEvent;
@@ -44,7 +45,7 @@ class TRuleAdvanceTimeTest extends TestCase
             Carbon::now()->addMinutes(120)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -58,7 +59,7 @@ class TRuleAdvanceTimeTest extends TestCase
             Carbon::now()->addMinutes(180)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -96,7 +97,7 @@ class TRuleAdvanceTimeTest extends TestCase
             Carbon::now()->addHours(2)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }
@@ -110,7 +111,7 @@ class TRuleAdvanceTimeTest extends TestCase
             Carbon::now()->addMinutes(90)
         );
 
-        $this->expectException(\Exception::class);
+        $this->expectException(VerificationRuleException::class);
 
         $rule->verify($event);
     }

@@ -13,6 +13,6 @@ use Konekt\Enum\Enum;
  */
 class CutoffPeriod extends Enum
 {
-    const DAY = '1 Day';
-    const WEEK = '1 Week';
+    const DAY = '1 day';
+    const WEEK = '1 week';
 }
