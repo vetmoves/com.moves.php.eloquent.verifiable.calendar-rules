@@ -26,6 +26,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerifiableRuleConfigurationException::class);
+        $this->expectExceptionMessage('Rule start time must be before rule end time.');
 
         $rule->verify($event);
 
@@ -40,6 +41,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerifiableRuleConfigurationException::class);
+        $this->expectExceptionMessage('Rule start time must be before rule end time.');
 
         $rule->verify($event);
     }
@@ -57,6 +59,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
 
@@ -93,6 +96,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -126,6 +130,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -144,6 +149,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -193,6 +199,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -211,6 +218,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -229,6 +237,7 @@ class TRuleClosureTest extends TestCase
 
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -248,6 +257,7 @@ class TRuleClosureTest extends TestCase
 
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -297,6 +307,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }
@@ -315,6 +326,7 @@ class TRuleClosureTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage('This event cannot be booked between');
 
         $rule->verify($event);
     }

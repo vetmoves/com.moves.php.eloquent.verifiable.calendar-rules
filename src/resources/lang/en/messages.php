@@ -7,7 +7,7 @@ return [
         ],
         'rule' => [
             'start_end_time' => 'Rule start time must be before rule end time.',
-            'open_close_time' => 'Rule open time must be before rule end time.'
+            'open_close_time' => 'Rule open time must be before rule close time.'
         ]
     ],
 
@@ -15,7 +15,7 @@ return [
         'min' => 'This event must be booked at least :expected in advance.',
         'max' => 'This event must be booked less than :expected in advance.'
     ],
-    'closure' => '',
+    'closure' => 'This event cannot be booked between :closure_start and :closure_end.',
     'cutoff' => [
         'allow' => 'This event cannot be booked until :cutoff_time.',
         'disallow' => 'Booking for this event closed at :cutoff_time.'

@@ -26,6 +26,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerifiableRuleConfigurationException::class);
+        $this->expectExceptionMessage(
+            'Rule open time must be before rule close time.'
+        );
 
         $rule->verify($event);
 
@@ -40,6 +43,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerifiableRuleConfigurationException::class);
+        $this->expectExceptionMessage(
+            'Rule open time must be before rule close time.'
+        );
 
         $rule->verify($event);
     }
@@ -72,6 +78,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerifiableConfigurationException::class);
+        $this->expectExceptionMessage(
+            'Event start time must be before event end time.'
+        );
 
         $rule->verify($event);
     }
@@ -106,6 +115,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -154,6 +166,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -173,6 +188,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -190,6 +208,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -208,6 +229,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -258,6 +282,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -277,6 +304,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -294,6 +324,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }
@@ -312,6 +345,9 @@ class TRuleOpenCloseTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during the open hours '
+        );
 
         $rule->verify($event);
     }

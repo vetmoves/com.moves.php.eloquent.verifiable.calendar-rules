@@ -46,7 +46,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
         $this->expectException(VerificationRuleException::class);
         $this->expectExceptionMessage(
-            'This event must be booked less than 60 minutes in advance.'
+            'This event must be booked less than'
         );
 
         $rule->verify($event);
@@ -63,7 +63,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
         $this->expectException(VerificationRuleException::class);
         $this->expectExceptionMessage(
-            'This event must be booked less than 60 minutes in advance.'
+            'This event must be booked less than'
         );
 
         $rule->verify($event);
@@ -104,7 +104,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
         $this->expectException(VerificationRuleException::class);
         $this->expectExceptionMessage(
-            'This event must be booked at least 60 minutes in advance.'
+            'This event must be booked at least'
         );
 
         $rule->verify($event);
@@ -121,7 +121,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
         $this->expectException(VerificationRuleException::class);
         $this->expectExceptionMessage(
-            'This event must be booked at least 60 minutes in advance.'
+            'This event must be booked at least'
         );
 
         $rule->verify($event);
