@@ -1,12 +1,12 @@
 <?php
 
-namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums;
+namespace Moves\Eloquent\Verifiable\Rules\Calendar\Enums;
 
 use Konekt\Enum\Enum;
 
 /**
  * Class CutoffPeriod
- * @package Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums
+ * @package Moves\Eloquent\Verifiable\Rules\Calendar\Enums
  *
  * @method static CutoffPeriod DAY()
  * @method static CutoffPeriod WEEK()

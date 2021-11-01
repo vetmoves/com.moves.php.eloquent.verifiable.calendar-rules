@@ -1,12 +1,12 @@
 <?php
 
-namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums;
+namespace Moves\Eloquent\Verifiable\Rules\Calendar\Enums;
 
 use Konekt\Enum\Enum;
 
 /**
  * Class CutoffType
- * @package Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums
+ * @package Moves\Eloquent\Verifiable\Rules\Calendar\Enums
  *
  * @method static CutoffType ALLOW()
  * @method static CutoffType DISALLOW()
