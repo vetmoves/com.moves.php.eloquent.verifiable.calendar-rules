@@ -3,8 +3,8 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums\CutoffPeriod;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums\CutoffType;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffPeriod;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Tests\Models\Rules\TestRuleCutoff;
 use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;

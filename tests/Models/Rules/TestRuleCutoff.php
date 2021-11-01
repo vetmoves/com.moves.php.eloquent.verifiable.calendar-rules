@@ -2,8 +2,8 @@
 
 namespace Tests\Models\Rules;
 
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums\CutoffPeriod;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Enums\CutoffType;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffPeriod;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleCutoff;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleCutoff;
 

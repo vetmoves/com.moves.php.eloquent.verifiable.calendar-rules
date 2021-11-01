@@ -3,6 +3,7 @@
 namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
 use Tests\Models\Rules\TestRuleAdvanceTime;
 use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;
@@ -11,7 +12,7 @@ class TRuleAdvanceTimeTest extends TestCase
 {
     public function testLessThanMaxAdvancePasses()
     {
-        $rule = new TestRuleAdvanceTime(-60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now(),
@@ -23,7 +24,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testUpToMaxAdvancePasses()
     {
-        $rule = new TestRuleAdvanceTime(-60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addMinutes(60),
@@ -36,7 +37,7 @@ class TRuleAdvanceTimeTest extends TestCase
     public function testJustPastMaxAdvanceFails()
     {
 
-        $rule = new TestRuleAdvanceTime(-60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addMinutes(60)->addSeconds(1),
@@ -50,7 +51,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testGreaterThanMaxFails()
     {
-        $rule = new TestRuleAdvanceTime(-60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addMinutes(120),
@@ -64,7 +65,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testGreaterThanMinAdvancePasses()
     {
-        $rule = new TestRuleAdvanceTime(60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addHours(2),
@@ -76,7 +77,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testUpToMinAdvancePasses()
     {
-        $rule = new TestRuleAdvanceTime(60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addHour()->addSecond(),
@@ -88,7 +89,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testJustLessThanMinAdvanceFails()
     {
-        $rule = new TestRuleAdvanceTime(60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addHour()->subSecond(),
@@ -102,7 +103,7 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testLessThanMinAdvanceFails()
     {
-        $rule = new TestRuleAdvanceTime(60);
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 60);
 
         $event = new TestVerifiableEvent(
             Carbon::now()->addMinutes(30),
