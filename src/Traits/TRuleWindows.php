@@ -100,21 +100,21 @@ trait TRuleWindows
         }
 
         $fmtOpenTime = $this->getOpenTime()->format(
-            __('verifiable_calendar_rules.formats.windows.date.open')
+            __('verifiable_calendar_rules::formats.windows.date.open')
         );
         $fmtCloseTime = $this->getCloseTime()->format(
-            __('verifiable_calendar_rules.formats.windows.date.close')
+            __('verifiable_calendar_rules::formats.windows.date.close')
         );
 
         $fmtEventStart = $verifiable->getStartTime()->format(
-            __('verifiable_calendar_rules.formats.windows.event.date.start')
+            __('verifiable_calendar_rules::formats.windows.event.date.start')
         );
         $fmtEventEnd = $verifiable->getEndTime()->format(
-            __('verifiable_calendar_rules.formats.windows.event.date.end')
+            __('verifiable_calendar_rules::formats.windows.event.date.end')
         );
 
         throw new VerificationRuleException(
-            __('verifiable_calendar_rules.messages.windows', [
+            __('verifiable_calendar_rules::messages.windows', [
                 'open_time' => $fmtOpenTime,
                 'close_time' => $fmtCloseTime,
                 'event_start' => $fmtEventStart,

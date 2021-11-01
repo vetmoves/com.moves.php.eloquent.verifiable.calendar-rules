@@ -34,7 +34,7 @@ trait TRuleAdvanceTime
         )
         {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.advance.min', [
+                __('verifiable_calendar_rules::messages.advance.min', [
                     'expected' => $fmtConfiguredInterval,
                     'actual' => $fmtActualInterval
                 ]),
@@ -48,7 +48,7 @@ trait TRuleAdvanceTime
         )
         {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.advance.max', [
+                __('verifiable_calendar_rules::messages.advance.max', [
                     'expected' => $fmtConfiguredInterval,
                     'actual' => $fmtActualInterval
                 ]),

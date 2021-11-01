@@ -2,6 +2,7 @@
 
 namespace Tests\TestCases;
 
+use Moves\Eloquent\Verifiable\Rules\Calendar\Providers\VerifiableCalendarRulesProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -11,6 +12,13 @@ abstract class TestCase extends BaseTestCase
         parent::setUp();
 
         $this->loadMigrationsFrom(__DIR__ . '/../Assets/database/migrations');
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [
+            VerifiableCalendarRulesProvider::class
+        ];
     }
 
     protected function getEnvironmentSetUp($app)

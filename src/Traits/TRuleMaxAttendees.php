@@ -18,7 +18,7 @@ trait TRuleMaxAttendees
         if (count($verifiable->getAttendees()) > $this->getMaxAttendees())
         {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.max_attendees', [
+                __('verifiable_calendar_rules::messages.max_attendees', [
                     'expected' => $this->getMaxAttendees(),
                     'actual' => count($verifiable->getAttendees())
                 ]),

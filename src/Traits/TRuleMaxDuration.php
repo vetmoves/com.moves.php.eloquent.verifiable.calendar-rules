@@ -41,7 +41,7 @@ trait TRuleMaxDuration
             $fmtActualInterval = Formatter::formatInterval($actualInterval);
 
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.max_duration', [
+                __('verifiable_calendar_rules::messages.max_duration', [
                     'expected' => $fmtConfiguredInterval,
                     'actual' => $fmtActualInterval
                 ]),

@@ -23,15 +23,15 @@ trait TRuleOpenClose
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtEventStart = $eventStart->format(
-            __('verifiable_calendar_rules.formats.open_close.event.date.start')
+            __('verifiable_calendar_rules::formats.open_close.event.date.start')
         );
         $fmtEventEnd = $eventEnd->format(
-            __('verifiable_calendar_rules.formats.open_close.event.date.end')
+            __('verifiable_calendar_rules::formats.open_close.event.date.end')
         );
 
         if ($eventEnd < $eventStart) {
             throw new VerifiableConfigurationException(
-                __('verifiable_calendar_rules.messages.config.event.start_end_time', [
+                __('verifiable_calendar_rules::messages.config.event.start_end_time', [
                     'event_start' => $fmtEventStart,
                     'event_end' => $fmtEventEnd
                 ]),
@@ -45,15 +45,15 @@ trait TRuleOpenClose
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtOpenTime = $open->format(
-            __('verifiable_calendar_rules.formats.open_close.date.open')
+            __('verifiable_calendar_rules::formats.open_close.date.open')
         );
         $fmtCloseTime = $close->format(
-            __('verifiable_calendar_rules.formats.open_close.date.close')
+            __('verifiable_calendar_rules::formats.open_close.date.close')
         );
 
         if ($close < $open) {
             throw new VerifiableRuleConfigurationException(
-                __('verifiable_calendar_rules.messages.config.rule.open_close_time', [
+                __('verifiable_calendar_rules::messages.config.rule.open_close_time', [
                     'open_time' => $fmtOpenTime,
                     'close_time' => $fmtCloseTime
                 ]),
@@ -69,7 +69,7 @@ trait TRuleOpenClose
             || $eventEnd > $close
         ) {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.open_close', [
+                __('verifiable_calendar_rules::messages.open_close', [
                     'open_time' => $fmtOpenTime,
                     'close_time' => $fmtCloseTime,
                     'event_start' => $fmtEventStart,

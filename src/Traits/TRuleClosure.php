@@ -23,15 +23,15 @@ trait TRuleClosure
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtEventStart = $eventStart->format(
-            __('verifiable_calendar_rules.formats.closure.event.date.start')
+            __('verifiable_calendar_rules::formats.closure.event.date.start')
         );
         $fmtEventEnd = $eventEnd->format(
-            __('verifiable_calendar_rules.formats.closure.event.date.end')
+            __('verifiable_calendar_rules::formats.closure.event.date.end')
         );
 
         if ($eventEnd < $eventStart) {
             throw new VerifiableConfigurationException(
-                __('verifiable_calendar_rules.messages.config.event.start_end_time', [
+                __('verifiable_calendar_rules::messages.config.event.start_end_time', [
                     'event_start' => $fmtEventStart,
                     'event_end' => $fmtEventEnd
                 ]),
@@ -45,15 +45,15 @@ trait TRuleClosure
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtClosureStart = $closureStart->format(
-            __('verifiable_calendar_rules.formats.closure.date.start')
+            __('verifiable_calendar_rules::formats.closure.date.start')
         );
         $fmtClosureEnd = $closureEnd->format(
-            __('verifiable_calendar_rules.formats.closure.date.end')
+            __('verifiable_calendar_rules::formats.closure.date.end')
         );
 
         if ($closureEnd < $closureStart) {
             throw new VerifiableRuleConfigurationException(
-                __('verifiable_calendar_rules.messages.config.rule.start_end_time', [
+                __('verifiable_calendar_rules::messages.config.rule.start_end_time', [
                     'closure_start' => $fmtClosureStart,
                     'closure_end' => $fmtClosureEnd
                 ]),
@@ -69,7 +69,7 @@ trait TRuleClosure
         )
         {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules.messages.closure', [
+                __('verifiable_calendar_rules::messages.closure', [
                     'closure_start' => $fmtClosureStart,
                     'closure_end' => $fmtClosureEnd,
                     'event_start' => $fmtEventStart,
