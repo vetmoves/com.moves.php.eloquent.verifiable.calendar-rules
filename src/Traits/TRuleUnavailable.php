@@ -9,7 +9,7 @@ use Moves\Eloquent\Verifiable\Exceptions\VerifiableRuleConfigurationException;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
-trait TRuleClosure
+trait TRuleUnavailable
 {
     /**
      * @param IVerifiableEvent $verifiable
