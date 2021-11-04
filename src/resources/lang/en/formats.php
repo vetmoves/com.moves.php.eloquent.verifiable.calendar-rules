@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'closure' => [
+    'unavailable' => [
         'date' => [
             'start' => 'M j, Y g:i A',
             'end' => 'M j, Y g:i A'

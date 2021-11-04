@@ -46,7 +46,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testDuringClosureFails()
+    public function testDuringUnavailableFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -82,7 +82,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventDuringClosureWithRecurrenceFails()
+    public function testEventDuringUnavailableWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -101,7 +101,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventDuringClosureWithIncorrectRecurrencePasses()
+    public function testEventDuringUnavailableWithIncorrectRecurrencePasses()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -117,7 +117,7 @@ class TRuleUnavailableTest extends TestCase
         $this->assertTrue($rule->verify($event));
     }
 
-    public function testEventAtStartOfClosureFails()
+    public function testEventAtStartOfUnavailableFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -135,7 +135,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventAtStartOfClosureWithRecurrenceFails()
+    public function testEventAtStartOfUnavailableWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -154,7 +154,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventBeforeClosurePasses()
+    public function testEventBeforeUnavailablePasses()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -169,7 +169,7 @@ class TRuleUnavailableTest extends TestCase
         $this->assertTrue($rule->verify($event));
     }
 
-    public function testEventBeforeClosureWithRecurrencePasses()
+    public function testEventBeforeUnavailableWithRecurrencePasses()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -186,7 +186,7 @@ class TRuleUnavailableTest extends TestCase
         $this->assertTrue($rule->verify($event));
     }
 
-    public function testEventOverlappingClosureStartFails()
+    public function testEventOverlappingUnavailableStartFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -204,7 +204,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventOverlappingClosureStartWithRecurrenceFails()
+    public function testEventOverlappingUnavailableStartWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -223,7 +223,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventAtEndOfClosureFails()
+    public function testEventAtEndOfUnavailableFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -242,7 +242,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventAtEndOfClosureWithRecurrenceFails()
+    public function testEventAtEndOfUnavailableWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -262,7 +262,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventAfterClosurePasses()
+    public function testEventAfterUnavailablePasses()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -294,7 +294,7 @@ class TRuleUnavailableTest extends TestCase
         $this->assertTrue($rule->verify($event));
     }
 
-    public function testEventOverlappingClosureEndFails()
+    public function testEventOverlappingUnavailableEndFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),

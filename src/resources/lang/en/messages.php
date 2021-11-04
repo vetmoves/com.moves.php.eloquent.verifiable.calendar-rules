@@ -15,7 +15,7 @@ return [
         'min' => 'This event must be booked at least :expected in advance.',
         'max' => 'This event must be booked less than :expected in advance.'
     ],
-    'closure' => 'This event cannot be booked between :closure_start and :closure_end.',
+    'unavailable' => 'This event cannot be booked between :unavailable_start and :unavailable_end.',
     'cutoff' => [
         'allow' => 'This event cannot be booked until :cutoff_time.',
         'disallow' => 'Booking for this event closed at :cutoff_time.'

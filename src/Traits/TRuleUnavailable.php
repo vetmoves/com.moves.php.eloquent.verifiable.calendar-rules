@@ -23,10 +23,10 @@ trait TRuleUnavailable
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtEventStart = $eventStart->format(
-            __('verifiable_calendar_rules::formats.closure.event.date.start')
+            __('verifiable_calendar_rules::formats.unavailable.event.date.start')
         );
         $fmtEventEnd = $eventEnd->format(
-            __('verifiable_calendar_rules::formats.closure.event.date.end')
+            __('verifiable_calendar_rules::formats.unavailable.event.date.end')
         );
 
         if ($eventEnd < $eventStart) {
@@ -39,23 +39,23 @@ trait TRuleUnavailable
             );
         }
 
-        $closureStart = Carbon::create($this->getStartTime())
+        $unavailableStart = Carbon::create($this->getStartTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $closureEnd = Carbon::create($this->getEndTime())
+        $unavailableEnd = Carbon::create($this->getEndTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
-        $fmtClosureStart = $closureStart->format(
-            __('verifiable_calendar_rules::formats.closure.date.start')
+        $fmtUnavailableStart = $unavailableStart->format(
+            __('verifiable_calendar_rules::formats.unavailable.date.start')
         );
-        $fmtClosureEnd = $closureEnd->format(
-            __('verifiable_calendar_rules::formats.closure.date.end')
+        $fmtUnavailableEnd = $unavailableEnd->format(
+            __('verifiable_calendar_rules::formats.unavailable.date.end')
         );
 
-        if ($closureEnd < $closureStart) {
+        if ($unavailableEnd < $unavailableStart) {
             throw new VerifiableRuleConfigurationException(
                 __('verifiable_calendar_rules::messages.config.rule.start_end_time', [
-                    'closure_start' => $fmtClosureStart,
-                    'closure_end' => $fmtClosureEnd
+                    'unavailable_start' => $fmtUnavailableStart,
+                    'unavailable_end' => $fmtUnavailableEnd
                 ]),
                 $this
             );
@@ -65,13 +65,13 @@ trait TRuleUnavailable
 
         if (
             (is_null($pattern) || $pattern->includes($eventStart))
-            && ($eventStart < $closureEnd && $eventEnd > $closureStart)
+            && ($eventStart < $unavailableEnd && $eventEnd > $unavailableStart)
         )
         {
             throw new VerificationRuleException(
-                __('verifiable_calendar_rules::messages.closure', [
-                    'closure_start' => $fmtClosureStart,
-                    'closure_end' => $fmtClosureEnd,
+                __('verifiable_calendar_rules::messages.unavailable', [
+                    'unavailable_start' => $fmtUnavailableStart,
+                    'unavailable_end' => $fmtUnavailableEnd,
                     'event_start' => $fmtEventStart,
                     'event_end' => $fmtEventEnd
                 ]),
