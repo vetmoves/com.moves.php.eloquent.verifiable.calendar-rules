@@ -79,7 +79,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventDuringClosureWithRecurrencePasses()
+    public function testEventDuringClosureWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
@@ -130,7 +130,7 @@ class TRuleUnavailableTest extends TestCase
         $rule->verify($event);
     }
 
-    public function testEventAtStartOfClosureWithRecurrencePasses()
+    public function testEventAtStartOfClosureWithRecurrenceFails()
     {
         $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
