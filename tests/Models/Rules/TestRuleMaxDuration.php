@@ -2,15 +2,23 @@
 
 namespace Tests\Models\Rules;
 
-use Moves\Eloquent\Verifiable\Rules\Calendar\Rules\TRuleMaxDuration;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleMaxDuration;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleMaxDuration;
 
 class TestRuleMaxDuration implements IRuleMaxDuration
 {
     use TRuleMaxDuration;
 
+    /** @var int $duration */
+    protected $duration;
+
+    public function __construct(int $duration)
+    {
+        $this->duration = $duration;
+    }
+
     public function getMaxDurationMinutes(): int
     {
-        return 60;
+        return $this->duration;
     }
 }

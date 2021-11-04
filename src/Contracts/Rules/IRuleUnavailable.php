@@ -13,11 +13,11 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
  * Close time is currently limited to occur after open time on the same calendar date.
  * That is, close time after midnight is not currently supported.
  */
-interface IRuleOpenClose extends IRule
+interface IRuleUnavailable extends IRule
 {
-    public function getOpenTime(): DateTimeInterface;
+    public function getStartTime(): DateTimeInterface;
 
-    public function getCloseTime(): DateTimeInterface;
+    public function getEndTime(): DateTimeInterface;
 
     public function getRecurrencePattern(): ?ACTemporalExpression;
 }
