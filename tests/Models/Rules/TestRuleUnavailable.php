@@ -3,13 +3,13 @@
 namespace Tests\Models\Rules;
 
 use DateTimeInterface;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleClosure;
-use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleClosure;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleUnavailable;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleUnavailable;
 use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
-class TestRuleClosure implements IRuleClosure
+class TestRuleUnavailable implements IRuleUnavailable
 {
-    use TRuleClosure;
+    use TRuleUnavailable;
 
     /** @var DateTimeInterface $start */
     protected $start;

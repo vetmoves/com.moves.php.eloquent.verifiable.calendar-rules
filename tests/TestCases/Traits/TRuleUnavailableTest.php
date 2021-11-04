@@ -7,15 +7,15 @@ use Moves\Eloquent\Verifiable\Exceptions\VerifiableConfigurationException;
 use Moves\Eloquent\Verifiable\Exceptions\VerifiableRuleConfigurationException;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
 use Moves\FowlerRecurringEvents\TemporalExpressions\TEDays;
-use Tests\Models\Rules\TestRuleClosure;
+use Tests\Models\Rules\TestRuleUnavailable;
 use Tests\Models\Verifiables\TestVerifiableEvent;
 use Tests\TestCases\TestCase;
 
-class TRuleClosureTest extends TestCase
+class TRuleUnavailableTest extends TestCase
 {
     public function testEndAfterStartOnSameDayEnforced()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 13:00:00'),
             Carbon::create('2021-01-01 12:00:00')
         );
@@ -29,7 +29,7 @@ class TRuleClosureTest extends TestCase
 
         $rule->verify($event);
 
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 13:00:00'),
             Carbon::create('2021-01-02 12:00:00')
         );
@@ -46,7 +46,7 @@ class TRuleClosureTest extends TestCase
 
     public function testDuringClosureFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -64,7 +64,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventWithEndBeforeStartFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 08:00:00'),
             Carbon::create('2021-01-01 17:00:00')
         );
@@ -81,7 +81,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventDuringClosureWithRecurrencePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -99,7 +99,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventDuringClosureWithIncorrectRecurrencePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))->setFrequency(2)
@@ -115,7 +115,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAtStartOfClosureFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -132,7 +132,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAtStartOfClosureWithRecurrencePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -150,7 +150,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventBeforeClosurePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -165,7 +165,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventBeforeClosureWithRecurrencePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -182,7 +182,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventOverlappingClosureStartFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -199,7 +199,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventOverlappingClosureStartWithRecurrenceFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -217,7 +217,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAtEndOfClosureFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -235,7 +235,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAtEndOfClosureWithRecurrenceFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -254,7 +254,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAfterClosurePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -269,7 +269,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventAfterCloseWithRecurrencePasses()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
@@ -286,7 +286,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventOverlappingClosureEndFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00')
         );
@@ -303,7 +303,7 @@ class TRuleClosureTest extends TestCase
 
     public function testEventOverlappingCloseWithRecurrenceFails()
     {
-        $rule = new TestRuleClosure(
+        $rule = new TestRuleUnavailable(
             Carbon::create('2021-01-01 12:00:00'),
             Carbon::create('2021-01-01 13:00:00'),
             TEDays::build(Carbon::create('2021-01-01'))
