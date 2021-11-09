@@ -16,7 +16,8 @@
         "moves/eloquent-verifiable": "^0.0.3",
         "moves/fowler-recurring-events": "^1.0.0-alpha.2",
         "konekt/enum": "^3.1",
-        "illuminate/database": "^8.68"
+        "illuminate/database": "^8.68",
+        "illuminate/support": "^8.68"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

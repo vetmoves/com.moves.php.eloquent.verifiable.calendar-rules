@@ -37,7 +37,6 @@ class TRuleAdvanceTimeTest extends TestCase
 
     public function testJustPastMaxAdvanceFails()
     {
-
         $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 60);
 
         $event = new TestVerifiableEvent(
@@ -46,6 +45,9 @@ class TRuleAdvanceTimeTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked less than'
+        );
 
         $rule->verify($event);
     }
@@ -60,6 +62,9 @@ class TRuleAdvanceTimeTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked less than'
+        );
 
         $rule->verify($event);
     }
@@ -98,6 +103,9 @@ class TRuleAdvanceTimeTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked at least'
+        );
 
         $rule->verify($event);
     }
@@ -112,6 +120,9 @@ class TRuleAdvanceTimeTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked at least'
+        );
 
         $rule->verify($event);
     }

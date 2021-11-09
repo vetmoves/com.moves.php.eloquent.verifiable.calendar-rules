@@ -52,10 +52,14 @@ class TRuleCutoffTest extends TestCase
     {
         $minutesToTomorrow = Carbon::now()->diffInMinutes(Carbon::tomorrow());
 
+        $cutoffOffsetMinutes = $minutesToTomorrow + 1;
+
+        $cutoffTime = Carbon::tomorrow()->subMinutes($cutoffOffsetMinutes);
+
         $rule = new TestRuleCutoff(
             CutoffType::DISALLOW(),
             CutoffPeriod::DAY(),
-            $minutesToTomorrow + 1
+            $cutoffOffsetMinutes
         );
 
         $event = new TestVerifiableEvent(
@@ -64,6 +68,9 @@ class TRuleCutoffTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'Booking for this event closed at'
+        );
 
         $rule->verify($event);
     }
@@ -72,10 +79,14 @@ class TRuleCutoffTest extends TestCase
     {
         $minutesToTomorrow = Carbon::now()->diffInMinutes(Carbon::tomorrow());
 
+        $cutoffOffsetMinutes = $minutesToTomorrow + 10;
+
+        $cutoffTime = Carbon::tomorrow()->subMinutes($cutoffOffsetMinutes);
+
         $rule = new TestRuleCutoff(
             CutoffType::DISALLOW(),
             CutoffPeriod::DAY(),
-            $minutesToTomorrow + 10
+            $cutoffOffsetMinutes
         );
 
         $event = new TestVerifiableEvent(
@@ -84,6 +95,9 @@ class TRuleCutoffTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'Booking for this event closed at'
+        );
 
         $rule->verify($event);
     }
@@ -92,10 +106,14 @@ class TRuleCutoffTest extends TestCase
     {
         $minutesToTomorrow = Carbon::now()->diffInMinutes(Carbon::tomorrow());
 
+        $cutoffOffsetMinutes = $minutesToTomorrow - 10;
+
+        $cutoffTime = Carbon::tomorrow()->subMinutes($cutoffOffsetMinutes);
+
         $rule = new TestRuleCutoff(
             CutoffType::ALLOW(),
             CutoffPeriod::DAY(),
-            $minutesToTomorrow - 10
+            $cutoffOffsetMinutes
         );
 
         $event = new TestVerifiableEvent(
@@ -104,14 +122,18 @@ class TRuleCutoffTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event cannot be booked until'
+        );
 
         $rule->verify($event);
     }
 
     public function testDateUpToAllowCutoffFails()
     {
-
         $minutesToTomorrow = Carbon::now()->diffInMinutes(Carbon::tomorrow());
+
+        $cutoffTime = Carbon::tomorrow()->subMinutes($minutesToTomorrow);
 
         $rule = new TestRuleCutoff(
             CutoffType::ALLOW(),
@@ -125,6 +147,9 @@ class TRuleCutoffTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event cannot be booked until'
+        );
 
         $rule->verify($event);
     }

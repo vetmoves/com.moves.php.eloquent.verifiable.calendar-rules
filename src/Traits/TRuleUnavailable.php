@@ -22,21 +22,41 @@ trait TRuleUnavailable
         $eventEnd = Carbon::create($verifiable->getEndTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
+        $fmtEventStart = $eventStart->format(
+            __('verifiable_calendar_rules::formats.unavailable.event.date.start')
+        );
+        $fmtEventEnd = $eventEnd->format(
+            __('verifiable_calendar_rules::formats.unavailable.event.date.end')
+        );
+
         if ($eventEnd < $eventStart) {
             throw new VerifiableConfigurationException(
-                'Event end time must be after event start time.',
+                __('verifiable_calendar_rules::messages.config.event.start_end_time', [
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd
+                ]),
                 $verifiable
             );
         }
 
-        $closureStart = Carbon::create($this->getStartTime())
+        $unavailableStart = Carbon::create($this->getStartTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $closureEnd = Carbon::create($this->getEndTime())
+        $unavailableEnd = Carbon::create($this->getEndTime())
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
-        if ($closureEnd < $closureStart) {
+        $fmtUnavailableStart = $unavailableStart->format(
+            __('verifiable_calendar_rules::formats.unavailable.date.start')
+        );
+        $fmtUnavailableEnd = $unavailableEnd->format(
+            __('verifiable_calendar_rules::formats.unavailable.date.end')
+        );
+
+        if ($unavailableEnd < $unavailableStart) {
             throw new VerifiableRuleConfigurationException(
-                'Closure end time must be after closure start time.',
+                __('verifiable_calendar_rules::messages.config.rule.start_end_time', [
+                    'unavailable_start' => $fmtUnavailableStart,
+                    'unavailable_end' => $fmtUnavailableEnd
+                ]),
                 $this
             );
         }
@@ -45,14 +65,16 @@ trait TRuleUnavailable
 
         if (
             (is_null($pattern) || $pattern->includes($eventStart))
-            && ($eventStart < $closureEnd && $eventEnd > $closureStart)
+            && ($eventStart < $unavailableEnd && $eventEnd > $unavailableStart)
         )
         {
-            $closureStartFormatted = $closureStart->format("M j, 'y g:i A");
-            $closureEndFormatted = $closureEnd->format("M j, 'y g:i A");
-
             throw new VerificationRuleException(
-            "This event cannot be booked between {$closureStartFormatted} and {$closureEndFormatted}.",
+                __('verifiable_calendar_rules::messages.unavailable', [
+                    'unavailable_start' => $fmtUnavailableStart,
+                    'unavailable_end' => $fmtUnavailableEnd,
+                    'event_start' => $fmtEventStart,
+                    'event_end' => $fmtEventEnd
+                ]),
                 $this
             );
         }

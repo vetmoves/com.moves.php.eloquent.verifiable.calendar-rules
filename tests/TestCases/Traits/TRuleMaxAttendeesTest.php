@@ -59,6 +59,9 @@ class TRuleMaxAttendeesTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event cannot have more than '
+        );
 
         $rule->verify($event);
     }

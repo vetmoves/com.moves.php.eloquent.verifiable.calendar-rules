@@ -44,6 +44,9 @@ class TRuleMaxDurationTest extends TestCase
         );
 
         $this->expectException(VerifiableConfigurationException::class);
+        $this->expectExceptionMessage(
+            'Event end time must be after event start time.'
+        );
 
         $rule->verify($event);
     }
@@ -58,6 +61,9 @@ class TRuleMaxDurationTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event cannot be longer than '
+        );
 
         $rule->verify($event);
     }

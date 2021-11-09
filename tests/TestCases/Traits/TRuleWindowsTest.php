@@ -556,6 +556,9 @@ class TRuleWindowsTest extends TestCase
         );
 
         $this->expectException(VerificationRuleException::class);
+        $this->expectExceptionMessage(
+            'This event must be booked during one of the pre-configured availability windows.'
+        );
 
         $rule->verify($event);
     }
