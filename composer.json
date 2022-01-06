@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "moves/eloquent-verifiable": "^0.0.3",
+        "moves/eloquent-verifiable": "^2.0.0",
         "moves/fowler-recurring-events": "^1.0.0-alpha.2",
         "konekt/enum": "^3.1",
         "illuminate/database": "^8.68",
