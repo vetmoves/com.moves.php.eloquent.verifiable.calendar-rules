@@ -1,5 +1,6 @@
 {
     "name": "moves/eloquent-verifiable-calendar-rules",
+    "version": "1.0.1",
     "description": "",
     "minimum-stability": "alpha",
     "keywords": [],
@@ -36,5 +37,11 @@
             "Tests\\": "tests/"
         }
     },
-    "version": "1.0.1"
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Moves\\Eloquent\\Verifiable\\Rules\\Calendar\\Providers\\VerifiableCalendarRulesProvider"
+            ]
+        }
+    }
 }
