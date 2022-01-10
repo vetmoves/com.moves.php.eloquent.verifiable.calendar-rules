@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.0.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.0.1...1.0.2) (2022-01-10)
+### Bug Fixes
+
+* Add missing configuration for package provider ([1f85a6](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/1f85a66882e57f660d6e0a1d703325d15f6263e9))
+
+
+---
+
 ## [1.0.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.0.0...1.0.1) (2022-01-06)
 
 ---
