@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.1.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.0.2...1.1.0) (2022-01-11)
+### Features
+
+* Added event argument for all rule contract functions ([a36566](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/a3656694f8e9522243332144c60bedbab25a3a3c))
+
+
+---
+
 ## [1.0.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.0.1...1.0.2) (2022-01-10)
 ### Bug Fixes
 
