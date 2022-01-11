@@ -2,6 +2,7 @@
 
 namespace Tests\Models\Rules;
 
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffPeriod;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleCutoff;
@@ -27,17 +28,17 @@ class TestRuleCutoff implements IRuleCutoff
         $this->cutoffOffsetMinutes = $cutoffOffsetMinutes;
     }
 
-    public function getCutoffType(): CutoffType
+    public function getCutoffType(IVerifiableEvent $event): CutoffType
     {
         return $this->cutoffType;
     }
 
-    public function getCutoffPeriod(): CutoffPeriod
+    public function getCutoffPeriod(IVerifiableEvent $event): CutoffPeriod
     {
         return $this->cutoffPeriod;
     }
 
-    public function getCutoffOffsetMinutes(): int
+    public function getCutoffOffsetMinutes(IVerifiableEvent $event): int
     {
         return $this->cutoffOffsetMinutes;
     }

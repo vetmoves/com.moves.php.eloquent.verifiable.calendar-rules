@@ -21,7 +21,7 @@ trait TRuleCutoff
     {
         $startTime = Carbon::create($verifiable->getStartTime());
         $cutoffPeriodStart = $startTime->setTime(0, 0);
-        $cutoffTime = $cutoffPeriodStart->subMinutes($this->getCutoffOffsetMinutes());
+        $cutoffTime = $cutoffPeriodStart->subMinutes($this->getCutoffOffsetMinutes($verifiable));
 
         $cutoffHasPassed = $cutoffTime <= Carbon::now();
 
@@ -29,7 +29,7 @@ trait TRuleCutoff
             __('verifiable_calendar_rules::formats.cutoff.date')
         );
 
-        $cutoffOffsetInterval = new DateInterval("PT{$this->getCutoffOffsetMinutes()}M");
+        $cutoffOffsetInterval = new DateInterval("PT{$this->getCutoffOffsetMinutes($verifiable)}M");
         $fmtCutoffOffsetInterval = Formatter::formatInterval($cutoffOffsetInterval);
 
         $fmtEventStart = $startTime->format(
@@ -39,7 +39,7 @@ trait TRuleCutoff
             __('verifiable_calendar_rules::formats.cutoff.event.date.end')
         );
 
-        if ($cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::DISALLOW()) )
+        if ($cutoffHasPassed && $this->getCutoffType($verifiable)->equals(CutoffType::DISALLOW()) )
         {
             throw new VerificationRuleException(
                 __('verifiable_calendar_rules::messages.cutoff.disallow', [
@@ -52,7 +52,7 @@ trait TRuleCutoff
             );
         }
 
-        if (!$cutoffHasPassed && $this->getCutoffType()->equals(CutoffType::ALLOW()))
+        if (!$cutoffHasPassed && $this->getCutoffType($verifiable)->equals(CutoffType::ALLOW()))
         {
             throw new VerificationRuleException(
                 __('verifiable_calendar_rules::messages.cutoff.allow', [

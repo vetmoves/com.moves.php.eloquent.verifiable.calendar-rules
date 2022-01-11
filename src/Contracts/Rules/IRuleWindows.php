@@ -10,28 +10,30 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
 interface IRuleWindows extends IRule
 {
-    public function getOpenTime(): DateTimeInterface;
+    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface;
 
-    public function getCloseTime(): DateTimeInterface;
+    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface;
 
-    public function getRecurrencePattern(): ?ACTemporalExpression;
+    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression;
 
-    public function getWindowDurationMinutes(): int;
+    public function getWindowDurationMinutes(IVerifiableEvent $event): int;
 
-    public function getWindowBufferDurationMinutes(): int;
+    public function getWindowBufferDurationMinutes(IVerifiableEvent $event): int;
 
-    public function getAlwaysApplyBuffer(): bool;
+    public function getAlwaysApplyBuffer(IVerifiableEvent $event): bool;
 
     /**
+     * @param IVerifiableEvent $event
      * @param DateTimeInterface $date
      * @return IVerifiableEvent[]
      */
-    public function getScheduledEventsForDate(DateTimeInterface $date): array;
+    public function getScheduledEventsForDate(IVerifiableEvent $event, DateTimeInterface $date): array;
 
     /**
+     * @param IVerifiableEvent $event
      * @param DateTimeInterface $date
      * @return EventWindow[]
      */
-    public function getAvailableWindowsForDate(DateTimeInterface $date): array;
+    public function getAvailableWindowsForDate(IVerifiableEvent $event, DateTimeInterface $date): array;
 }
 

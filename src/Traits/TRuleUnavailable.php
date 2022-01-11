@@ -39,9 +39,9 @@ trait TRuleUnavailable
             );
         }
 
-        $unavailableStart = Carbon::create($this->getStartTime())
+        $unavailableStart = Carbon::create($this->getStartTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $unavailableEnd = Carbon::create($this->getEndTime())
+        $unavailableEnd = Carbon::create($this->getEndTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtUnavailableStart = $unavailableStart->format(
@@ -61,7 +61,7 @@ trait TRuleUnavailable
             );
         }
 
-        $pattern = $this->getRecurrencePattern();
+        $pattern = $this->getRecurrencePattern($verifiable);
 
         if (
             (is_null($pattern) || $pattern->includes($eventStart))

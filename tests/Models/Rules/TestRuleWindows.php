@@ -52,37 +52,37 @@ class TestRuleWindows implements IRuleWindows
         $this->pattern = $pattern;
     }
 
-    public function getOpenTime(): DateTimeInterface
+    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->open;
     }
 
-    public function getCloseTime(): DateTimeInterface
+    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->close;
     }
 
-    public function getRecurrencePattern(): ?ACTemporalExpression
+    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression
     {
         return $this->pattern;
     }
 
-    public function getWindowDurationMinutes(): int
+    public function getWindowDurationMinutes(IVerifiableEvent $event): int
     {
         return $this->windowDuration;
     }
 
-    public function getWindowBufferDurationMinutes(): int
+    public function getWindowBufferDurationMinutes(IVerifiableEvent $event): int
     {
         return $this->bufferDuration;
     }
 
-    public function getAlwaysApplyBuffer(): bool
+    public function getAlwaysApplyBuffer(IVerifiableEvent $event): bool
     {
         return $this->alwaysApplyBuffer;
     }
 
-    public function getScheduledEventsForDate(DateTimeInterface $date): array
+    public function getScheduledEventsForDate(IVerifiableEvent $event, DateTimeInterface $date): array
     {
         return $this->scheduledEvents;
     }

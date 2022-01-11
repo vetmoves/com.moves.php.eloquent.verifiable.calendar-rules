@@ -33,8 +33,8 @@ trait TRuleMaxDuration
 
         $duration = $eventStart->diffInMinutes($eventEnd);
 
-        if ($duration > $this->getMaxDurationMinutes()) {
-            $configuredInterval = new DateInterval("PT{$this->getMaxDurationMinutes()}M");
+        if ($duration > $this->getMaxDurationMinutes($verifiable)) {
+            $configuredInterval = new DateInterval("PT{$this->getMaxDurationMinutes($verifiable)}M");
             $fmtConfiguredInterval = Formatter::formatInterval($configuredInterval);
 
             $actualInterval = new DateInterval("PT{$duration}M");

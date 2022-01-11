@@ -4,6 +4,7 @@ namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules;
 
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Contracts\IRule;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
 /**
@@ -15,9 +16,9 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
  */
 interface IRuleUnavailable extends IRule
 {
-    public function getStartTime(): DateTimeInterface;
+    public function getStartTime(IVerifiableEvent $event): DateTimeInterface;
 
-    public function getEndTime(): DateTimeInterface;
+    public function getEndTime(IVerifiableEvent $event): DateTimeInterface;
 
-    public function getRecurrencePattern(): ?ACTemporalExpression;
+    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression;
 }

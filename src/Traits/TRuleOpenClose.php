@@ -39,9 +39,9 @@ trait TRuleOpenClose
             );
         }
 
-        $open = Carbon::create($this->getOpenTime())
+        $open = Carbon::create($this->getOpenTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $close = Carbon::create($this->getCloseTime())
+        $close = Carbon::create($this->getCloseTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
 
         $fmtOpenTime = $open->format(
@@ -61,7 +61,7 @@ trait TRuleOpenClose
             );
         }
 
-        $pattern = $this->getRecurrencePattern();
+        $pattern = $this->getRecurrencePattern($verifiable);
 
         if (
             (!is_null($pattern) && !$pattern->includes($eventStart))

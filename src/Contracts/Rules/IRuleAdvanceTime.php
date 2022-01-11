@@ -3,6 +3,7 @@
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules;
 
 use Moves\Eloquent\Verifiable\Contracts\IRule;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
 
 /**
@@ -13,7 +14,7 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
  */
 interface IRuleAdvanceTime extends IRule
 {
-    public function getAdvanceType(): AdvanceType;
+    public function getAdvanceType(IVerifiableEvent $event): AdvanceType;
 
-    public function getAdvanceMinutes(): int;
+    public function getAdvanceMinutes(IVerifiableEvent $event): int;
 }

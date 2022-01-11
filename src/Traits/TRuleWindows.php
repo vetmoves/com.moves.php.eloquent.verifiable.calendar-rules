@@ -15,28 +15,28 @@ trait TRuleWindows
      * @param DateTimeInterface $date
      * @return EventWindow[]
      */
-    public function getAvailableWindowsForDate(DateTimeInterface $date): array
+    public function getAvailableWindowsForDate(IVerifiableEvent $event, DateTimeInterface $date): array
     {
         $targetDate = Carbon::create($date);
 
-        $pattern = $this->getRecurrencePattern();
+        $pattern = $this->getRecurrencePattern($event);
 
         if (!is_null($pattern) && !$pattern->includes($date))
         {
             return [];
         }
 
-        $currentTime = Carbon::create($this->getOpenTime());
-        $closeTime = Carbon::create($this->getCloseTime());
+        $currentTime = Carbon::create($this->getOpenTime($event));
+        $closeTime = Carbon::create($this->getCloseTime($event));
 
         if ($pattern) {
             $currentTime->setDate($targetDate->year, $targetDate->month, $targetDate->day);
             $closeTime->setDate($targetDate->year, $targetDate->month, $targetDate->day);
         }
 
-        $windowDuration = $this->getWindowDurationMinutes();
-        $bufferDuration = $this->getWindowBufferDurationMinutes();
-        $scheduledEvents = $this->getScheduledEventsForDate($date);
+        $windowDuration = $this->getWindowDurationMinutes($event);
+        $bufferDuration = $this->getWindowBufferDurationMinutes($event);
+        $scheduledEvents = $this->getScheduledEventsForDate($event, $date);
 
         $windows = [];
 
@@ -68,7 +68,7 @@ trait TRuleWindows
 
                 $currentTime = $windowEnd->copy();
 
-                if ($this->getAlwaysApplyBuffer()) {
+                if ($this->getAlwaysApplyBuffer($event)) {
                     $currentTime->addMinutes($bufferDuration);
                 }
             }
@@ -84,7 +84,7 @@ trait TRuleWindows
      */
     public function verify(IVerifiable $verifiable): bool
     {
-        $availableWindows = $this->getAvailableWindowsForDate($verifiable->getStartTime());
+        $availableWindows = $this->getAvailableWindowsForDate($verifiable, $verifiable->getStartTime());
 
         $dateFormat = 'Y-m-d H:i:s';
 
@@ -99,10 +99,10 @@ trait TRuleWindows
             }
         }
 
-        $fmtOpenTime = $this->getOpenTime()->format(
+        $fmtOpenTime = $this->getOpenTime($verifiable)->format(
             __('verifiable_calendar_rules::formats.windows.date.open')
         );
-        $fmtCloseTime = $this->getCloseTime()->format(
+        $fmtCloseTime = $this->getCloseTime($verifiable)->format(
             __('verifiable_calendar_rules::formats.windows.date.close')
         );
 

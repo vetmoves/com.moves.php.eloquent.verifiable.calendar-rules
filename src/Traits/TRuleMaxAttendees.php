@@ -15,11 +15,11 @@ trait TRuleMaxAttendees
      */
     public function verify(IVerifiable $verifiable): bool
     {
-        if (count($verifiable->getAttendees()) > $this->getMaxAttendees())
+        if (count($verifiable->getAttendees()) > $this->getMaxAttendees($verifiable))
         {
             throw new VerificationRuleException(
                 __('verifiable_calendar_rules::messages.max_attendees', [
-                    'expected' => $this->getMaxAttendees(),
+                    'expected' => $this->getMaxAttendees($verifiable),
                     'actual' => count($verifiable->getAttendees())
                 ]),
                 $this

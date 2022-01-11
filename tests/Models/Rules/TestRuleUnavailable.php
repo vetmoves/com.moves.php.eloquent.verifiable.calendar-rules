@@ -4,6 +4,7 @@ namespace Tests\Models\Rules;
 
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleUnavailable;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleUnavailable;
 use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
@@ -31,17 +32,17 @@ class TestRuleUnavailable implements IRuleUnavailable
         $this->pattern = $pattern;
     }
 
-    public function getStartTime(): DateTimeInterface
+    public function getStartTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->start;
     }
 
-    public function getEndTime(): DateTimeInterface
+    public function getEndTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->end;
     }
 
-    public function getRecurrencePattern(): ?ACTemporalExpression
+    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression
     {
         return $this->pattern;
     }

@@ -19,7 +19,7 @@ trait TRuleAdvanceTime
      */
     public function verify(IVerifiable $verifiable): bool
     {
-        $configuredAdvanceMinutes = $this->getAdvanceMinutes();
+        $configuredAdvanceMinutes = $this->getAdvanceMinutes($verifiable);
         $now = Carbon::now();
         $actualAdvanceMinutes = $now->diffInMilliseconds($verifiable->getStartTime(), false) / 60000.0;
 
@@ -29,7 +29,7 @@ trait TRuleAdvanceTime
         $actualInterval = new DateInterval('PT' . intval($actualAdvanceMinutes) . 'M');
         $fmtActualInterval = Formatter::formatInterval($actualInterval);
 
-        if ($this->getAdvanceType()->equals(AdvanceType::MIN())
+        if ($this->getAdvanceType($verifiable)->equals(AdvanceType::MIN())
             && $actualAdvanceMinutes < $configuredAdvanceMinutes
         )
         {
@@ -43,7 +43,7 @@ trait TRuleAdvanceTime
         }
 
         if (
-            $this->getAdvanceType()->equals(AdvanceType::MAX())
+            $this->getAdvanceType($verifiable)->equals(AdvanceType::MAX())
             && $actualAdvanceMinutes > abs($configuredAdvanceMinutes)
         )
         {

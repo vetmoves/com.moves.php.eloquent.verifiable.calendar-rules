@@ -3,6 +3,7 @@
 namespace Tests\Models\Rules;
 
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleAdvanceTime;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleAdvanceTime;
 
@@ -22,12 +23,12 @@ class TestRuleAdvanceTime implements IRuleAdvanceTime
         $this->advance = $advance;
     }
 
-    public function getAdvanceType(): AdvanceType
+    public function getAdvanceType(IVerifiableEvent $event): AdvanceType
     {
         return $this->advanceType;
     }
 
-    public function getAdvanceMinutes(): int
+    public function getAdvanceMinutes(IVerifiableEvent $event): int
     {
         return $this->advance;
     }

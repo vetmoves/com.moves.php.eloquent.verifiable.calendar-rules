@@ -4,6 +4,7 @@ namespace Tests\Models\Rules;
 
 use DateTimeInterface;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleOpenClose;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleOpenClose;
 use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
@@ -31,17 +32,17 @@ class TestRuleOpenClose implements IRuleOpenClose
         $this->pattern = $pattern;
     }
 
-    public function getOpenTime(): DateTimeInterface
+    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->open;
     }
 
-    public function getCloseTime(): DateTimeInterface
+    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface
     {
         return $this->close;
     }
 
-    public function getRecurrencePattern(): ?ACTemporalExpression
+    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression
     {
         return $this->pattern;
     }

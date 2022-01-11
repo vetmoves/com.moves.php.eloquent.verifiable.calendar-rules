@@ -3,6 +3,7 @@
 namespace Tests\Models\Rules;
 
 use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Rules\IRuleMaxAttendees;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\Eloquent\Verifiable\Rules\Calendar\Traits\TRuleMaxAttendees;
 
 class TestRuleMaxAttendees implements IRuleMaxAttendees
@@ -17,7 +18,7 @@ class TestRuleMaxAttendees implements IRuleMaxAttendees
         $this->maxAttendees = $maxAttendees;
     }
 
-    public function getMaxAttendees(): int
+    public function getMaxAttendees(IVerifiableEvent $event): int
     {
         return $this->maxAttendees;
     }
