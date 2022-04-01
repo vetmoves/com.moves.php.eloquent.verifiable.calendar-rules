@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.2.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.1.0...1.2.0) (2022-04-01)
+### Features
+
+* Add array and json serialization to EventWindow ([318b4b](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/318b4bccd603492937906c41fe4d29c4baabaa53))
+
+
+---
+
 ## [1.1.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.0.2...1.1.0) (2022-01-11)
 ### Features
 
