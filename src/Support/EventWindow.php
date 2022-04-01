@@ -2,9 +2,13 @@
 
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Support;
 
+use Carbon\Carbon;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
 use DateTimeInterface;
+use JsonSerializable;
 
-class EventWindow
+class EventWindow implements Arrayable, Jsonable, JsonSerializable
 {
     /** @var DateTimeInterface $start */
     protected $start;
@@ -26,5 +30,23 @@ class EventWindow
     public function getEndTime(): DateTimeInterface
     {
         return $this->end;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'start' => Carbon::create($this->start)->toISOString(),
+            'end' => Carbon::create($this->end)->toISOString()
+        ];
+    }
+
+    public function toJson($options = 0): string
+    {
+        return json_encode($this->toArray(), $options);
+    }
+
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }
