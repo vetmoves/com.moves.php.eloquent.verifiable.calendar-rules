@@ -21,8 +21,10 @@ trait TRuleWindows
 
         $pattern = $this->getRecurrencePattern($event);
 
-        if (!is_null($pattern) && !$pattern->includes($date))
-        {
+        if (is_null($pattern)
+            ? Carbon::create($this->getOpenTime($event))->setTime(0, 0) != $targetDate->copy()->setTime(0, 0)
+            : !$pattern->includes($date)
+        ) {
             return [];
         }
 
