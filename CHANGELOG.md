@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.2.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.2.0...1.2.1) (2022-04-06)
+### Bug Fixes
+
+* Check date for non-recurring windows rules when evaluating available windows ([00a11f](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/00a11f5ee267fd83c519c3709e1d811bfe03ae3e))
+
+
+---
+
 ## [1.2.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.1.0...1.2.0) (2022-04-01)
 ### Features
 
