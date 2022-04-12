@@ -33,6 +33,8 @@ class Formatter
             }
         }
 
+        $result = $interval->format('%r') . $result;
+
         return $result;
     }
 }

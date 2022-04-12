@@ -19,14 +19,15 @@ trait TRuleAdvanceTime
      */
     public function verify(IVerifiable $verifiable): bool
     {
-        $configuredAdvanceMinutes = $this->getAdvanceMinutes($verifiable);
         $now = Carbon::now();
-        $actualAdvanceMinutes = $now->diffInMilliseconds($verifiable->getStartTime()) / 60000.0;
 
-        $configuredInterval = new DateInterval("PT{$configuredAdvanceMinutes}M");
+        $configuredAdvanceMinutes = $this->getAdvanceMinutes($verifiable);
+        $actualAdvanceMinutes = $now->diffInMilliseconds($verifiable->getStartTime(), false) / 60000.0;
+
+        $configuredInterval = $now->diff($now->copy()->addMinutes($configuredAdvanceMinutes));
         $fmtConfiguredInterval = Formatter::formatInterval($configuredInterval);
 
-        $actualInterval = new DateInterval('PT' . intval($actualAdvanceMinutes) . 'M');
+        $actualInterval = $now->diff($verifiable->getStartTime());
         $fmtActualInterval = Formatter::formatInterval($actualInterval);
 
         if ($this->getAdvanceType($verifiable)->equals(AdvanceType::MIN())
