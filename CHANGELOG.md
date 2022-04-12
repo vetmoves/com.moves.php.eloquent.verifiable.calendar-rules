@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.2.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.2.1...1.2.2) (2022-04-12)
+### Bug Fixes
+
+* Use absolute date intervals for AdvanceTime rule ([4fc3ad](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/4fc3adba18df380fa4716b20e1506dbe34577677))
+
+
+---
+
 ## [1.2.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.2.0...1.2.1) (2022-04-06)
 ### Bug Fixes
 
