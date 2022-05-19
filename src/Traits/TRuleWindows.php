@@ -18,22 +18,27 @@ trait TRuleWindows
     public function getAvailableWindowsForDate(IVerifiableEvent $event, DateTimeInterface $date): array
     {
         $targetDate = Carbon::create($date);
+        $eventDayStart = Carbon::create($this->getOpenTime($event))
+            ->setTimezone($date->getTimezone())
+            ->setTime(0, 0);
 
         $pattern = $this->getRecurrencePattern($event);
 
         if (is_null($pattern)
-            ? Carbon::create($this->getOpenTime($event))->setTime(0, 0) != $targetDate->copy()->setTime(0, 0)
+            ? $eventDayStart != $targetDate->copy()->setTime(0, 0)
             : !$pattern->includes($date)
         ) {
             return [];
         }
 
-        $currentTime = Carbon::create($this->getOpenTime($event));
-        $closeTime = Carbon::create($this->getCloseTime($event));
+        $currentTime = Carbon::create($this->getOpenTime($event))->setTimezone($date->getTimezone());
+        $closeTime = Carbon::create($this->getCloseTime($event))->setTimezone($date->getTimezone());
 
         if ($pattern) {
-            $currentTime->setDate($targetDate->year, $targetDate->month, $targetDate->day);
-            $closeTime->setDate($targetDate->year, $targetDate->month, $targetDate->day);
+            $diff = $currentTime->diff($targetDate);
+
+            $currentTime->add($diff);
+            $closeTime->add($diff);
         }
 
         $windowDuration = $this->getWindowDurationMinutes($event);
@@ -56,6 +61,7 @@ trait TRuleWindows
                 {
                     $windowOverlapsEvents = true;
                     $currentTime = Carbon::create($event->getEndTime())
+                        ->setTimezone($date->getTimezone())
                         ->addMinutes($bufferDuration);
                     break;
                 }
@@ -65,7 +71,10 @@ trait TRuleWindows
             {
                 if ($windowEnd <= $closeTime)
                 {
-                    $windows[] = new EventWindow($windowStart, $windowEnd);
+                    $windows[] = new EventWindow(
+                        $windowStart->copy()->setTimezone('UTC'),
+                        $windowEnd->copy()->setTimezone('UTC')
+                    );
                 }
 
                 $currentTime = $windowEnd->copy();

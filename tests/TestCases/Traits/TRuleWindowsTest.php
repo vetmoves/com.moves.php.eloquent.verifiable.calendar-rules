@@ -4,6 +4,7 @@ namespace Tests\TestCases\Traits;
 
 use Carbon\Carbon;
 use Moves\Eloquent\Verifiable\Exceptions\VerificationRuleException;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 use Moves\FowlerRecurringEvents\TemporalExpressions\TEDays;
 use Tests\Models\Rules\TestRuleWindows;
 use Tests\Models\Verifiables\TestVerifiableEvent;
@@ -623,5 +624,103 @@ class TRuleWindowsTest extends TestCase
         );
 
         $rule->verify($event);
+    }
+
+    public function testGetWindowsForDateWithTzShift()
+    {
+        $rule = new TestRuleWindows(
+            Carbon::create('2021-01-01 00:00:00')
+                ->shiftTimezone('America/Los_Angeles')
+                ->setTimezone('UTC'),
+            Carbon::create('2021-01-02 00:00:00')
+                ->shiftTimezone('America/Los_Angeles')
+                ->setTimezone('UTC'),
+            60,
+            0,
+            false,
+            [],
+            TEDays::build(Carbon::create('2020-12-31'))
+        );
+
+        $event = new TestVerifiableEvent(
+            Carbon::create('2021-01-01 10:00:00'),
+            Carbon::create('2021-01-01 11:00:00')
+        );
+
+        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01 00:00:00')->shiftTimezone('America/Los_Angeles'));
+
+        $this->assertCount(24, $windows);
+
+        $this->assertEquals('2021-01-01 00:00:00', $windows[0]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 01:00:00', $windows[0]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 01:00:00', $windows[1]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 02:00:00', $windows[1]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 02:00:00', $windows[2]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 03:00:00', $windows[2]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 03:00:00', $windows[3]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 04:00:00', $windows[3]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 04:00:00', $windows[4]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 05:00:00', $windows[4]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 05:00:00', $windows[5]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 06:00:00', $windows[5]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 06:00:00', $windows[6]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 07:00:00', $windows[6]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 07:00:00', $windows[7]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 08:00:00', $windows[7]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 08:00:00', $windows[8]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 09:00:00', $windows[8]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 09:00:00', $windows[9]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 10:00:00', $windows[9]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 10:00:00', $windows[10]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 11:00:00', $windows[10]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 11:00:00', $windows[11]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 12:00:00', $windows[11]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 12:00:00', $windows[12]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 13:00:00', $windows[12]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 13:00:00', $windows[13]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 14:00:00', $windows[13]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 14:00:00', $windows[14]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 15:00:00', $windows[14]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 15:00:00', $windows[15]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 16:00:00', $windows[15]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 16:00:00', $windows[16]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 17:00:00', $windows[16]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 17:00:00', $windows[17]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 18:00:00', $windows[17]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 18:00:00', $windows[18]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 19:00:00', $windows[18]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 19:00:00', $windows[19]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 20:00:00', $windows[19]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 20:00:00', $windows[20]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 21:00:00', $windows[20]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 21:00:00', $windows[21]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 22:00:00', $windows[21]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 22:00:00', $windows[22]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-01 23:00:00', $windows[22]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+
+        $this->assertEquals('2021-01-01 23:00:00', $windows[23]->getStartTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
+        $this->assertEquals('2021-01-02 00:00:00', $windows[23]->getEndTime()->setTimezone('America/Los_Angeles')->toDateTimeString());
     }
 }
