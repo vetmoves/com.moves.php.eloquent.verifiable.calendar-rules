@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [1.3.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.2.3...1.3.0) (2022-05-19)
+### Features
+
+* Add timezone shifting to getAvailableWindowsForDate ([ee6501](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/ee6501cffaaee3507919f85b45103db65b3136a3))
+
+
+---
+
 ## [1.2.3](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.2.2...1.2.3) (2022-04-12)
 ### Bug Fixes
 
