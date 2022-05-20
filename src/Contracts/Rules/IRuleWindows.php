@@ -23,15 +23,15 @@ interface IRuleWindows extends IRule
     public function getAlwaysApplyBuffer(?IVerifiableEvent $event = null): bool;
 
     /**
-     * @param IVerifiableEvent|null $event
      * @param DateTimeInterface $date
+     * @param IVerifiableEvent|null $event
      * @return IVerifiableEvent[]
      */
-    public function getScheduledEventsForDate(?IVerifiableEvent $event = null, DateTimeInterface $date): array;
+    public function getScheduledEventsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array;
 
     /**
-     * @param IVerifiableEvent|null $event
      * @param DateTimeInterface $date
+     * @param IVerifiableEvent|null $event
      * @return EventWindow[]
      */
     public function getAvailableWindowsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array;
