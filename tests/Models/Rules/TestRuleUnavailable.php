@@ -32,17 +32,17 @@ class TestRuleUnavailable implements IRuleUnavailable
         $this->pattern = $pattern;
     }
 
-    public function getStartTime(IVerifiableEvent $event): DateTimeInterface
+    public function getStartTime(?IVerifiableEvent $event = null): DateTimeInterface
     {
         return $this->start;
     }
 
-    public function getEndTime(IVerifiableEvent $event): DateTimeInterface
+    public function getEndTime(?IVerifiableEvent $event = null): DateTimeInterface
     {
         return $this->end;
     }
 
-    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression
+    public function getRecurrencePattern(?IVerifiableEvent $event = null): ?ACTemporalExpression
     {
         return $this->pattern;
     }

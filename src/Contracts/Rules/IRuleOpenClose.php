@@ -16,9 +16,9 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
  */
 interface IRuleOpenClose extends IRule
 {
-    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getOpenTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getCloseTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression;
+    public function getRecurrencePattern(?IVerifiableEvent $event = null): ?ACTemporalExpression;
 }

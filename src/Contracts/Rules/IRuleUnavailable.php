@@ -16,9 +16,9 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
  */
 interface IRuleUnavailable extends IRule
 {
-    public function getStartTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getStartTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getEndTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getEndTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression;
+    public function getRecurrencePattern(?IVerifiableEvent $event = null): ?ACTemporalExpression;
 }

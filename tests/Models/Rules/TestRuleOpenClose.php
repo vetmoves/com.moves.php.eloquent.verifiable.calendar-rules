@@ -32,17 +32,17 @@ class TestRuleOpenClose implements IRuleOpenClose
         $this->pattern = $pattern;
     }
 
-    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface
+    public function getOpenTime(?IVerifiableEvent $event = null): DateTimeInterface
     {
         return $this->open;
     }
 
-    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface
+    public function getCloseTime(?IVerifiableEvent $event = null): DateTimeInterface
     {
         return $this->close;
     }
 
-    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression
+    public function getRecurrencePattern(?IVerifiableEvent $event = null): ?ACTemporalExpression
     {
         return $this->pattern;
     }

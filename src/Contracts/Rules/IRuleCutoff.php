@@ -9,9 +9,9 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\CutoffType;
 
 interface IRuleCutoff extends IRule
 {
-    public function getCutoffType(IVerifiableEvent $event): CutoffType;
+    public function getCutoffType(?IVerifiableEvent $event = null): CutoffType;
 
-    public function getCutoffPeriod(IVerifiableEvent $event): CutoffPeriod;
+    public function getCutoffPeriod(?IVerifiableEvent $event = null): CutoffPeriod;
 
-    public function getCutoffOffsetMinutes(IVerifiableEvent $event): int;
+    public function getCutoffOffsetMinutes(?IVerifiableEvent $event = null): int;
 }

@@ -28,17 +28,17 @@ class TestRuleCutoff implements IRuleCutoff
         $this->cutoffOffsetMinutes = $cutoffOffsetMinutes;
     }
 
-    public function getCutoffType(IVerifiableEvent $event): CutoffType
+    public function getCutoffType(?IVerifiableEvent $event = null): CutoffType
     {
         return $this->cutoffType;
     }
 
-    public function getCutoffPeriod(IVerifiableEvent $event): CutoffPeriod
+    public function getCutoffPeriod(?IVerifiableEvent $event = null): CutoffPeriod
     {
         return $this->cutoffPeriod;
     }
 
-    public function getCutoffOffsetMinutes(IVerifiableEvent $event): int
+    public function getCutoffOffsetMinutes(?IVerifiableEvent $event = null): int
     {
         return $this->cutoffOffsetMinutes;
     }

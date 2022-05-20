@@ -18,7 +18,7 @@ class TestRuleMaxDuration implements IRuleMaxDuration
         $this->duration = $duration;
     }
 
-    public function getMaxDurationMinutes(IVerifiableEvent $event): int
+    public function getMaxDurationMinutes(?IVerifiableEvent $event = null): int
     {
         return $this->duration;
     }

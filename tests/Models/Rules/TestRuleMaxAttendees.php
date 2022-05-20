@@ -18,7 +18,7 @@ class TestRuleMaxAttendees implements IRuleMaxAttendees
         $this->maxAttendees = $maxAttendees;
     }
 
-    public function getMaxAttendees(IVerifiableEvent $event): int
+    public function getMaxAttendees(?IVerifiableEvent $event = null): int
     {
         return $this->maxAttendees;
     }

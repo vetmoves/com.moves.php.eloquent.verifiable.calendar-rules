@@ -7,5 +7,5 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEv
 
 interface IRuleMaxDuration extends IRule
 {
-    public function getMaxDurationMinutes(IVerifiableEvent $event): int;
+    public function getMaxDurationMinutes(?IVerifiableEvent $event = null): int;
 }

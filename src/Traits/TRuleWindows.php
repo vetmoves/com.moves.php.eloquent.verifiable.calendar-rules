@@ -15,7 +15,7 @@ trait TRuleWindows
      * @param DateTimeInterface $date
      * @return EventWindow[]
      */
-    public function getAvailableWindowsForDate(IVerifiableEvent $event, DateTimeInterface $date): array
+    public function getAvailableWindowsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array
     {
         $targetDate = Carbon::create($date);
         $eventDayStart = Carbon::create($this->getOpenTime($event))

@@ -23,12 +23,12 @@ class TestRuleAdvanceTime implements IRuleAdvanceTime
         $this->advance = $advance;
     }
 
-    public function getAdvanceType(IVerifiableEvent $event): AdvanceType
+    public function getAdvanceType(?IVerifiableEvent $event = null): AdvanceType
     {
         return $this->advanceType;
     }
 
-    public function getAdvanceMinutes(IVerifiableEvent $event): int
+    public function getAdvanceMinutes(?IVerifiableEvent $event = null): int
     {
         return $this->advance;
     }

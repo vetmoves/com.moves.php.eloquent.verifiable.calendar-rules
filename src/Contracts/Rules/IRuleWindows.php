@@ -10,30 +10,30 @@ use Moves\FowlerRecurringEvents\Contracts\ACTemporalExpression;
 
 interface IRuleWindows extends IRule
 {
-    public function getOpenTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getOpenTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getCloseTime(IVerifiableEvent $event): DateTimeInterface;
+    public function getCloseTime(?IVerifiableEvent $event = null): DateTimeInterface;
 
-    public function getRecurrencePattern(IVerifiableEvent $event): ?ACTemporalExpression;
+    public function getRecurrencePattern(?IVerifiableEvent $event = null): ?ACTemporalExpression;
 
-    public function getWindowDurationMinutes(IVerifiableEvent $event): int;
+    public function getWindowDurationMinutes(?IVerifiableEvent $event = null): int;
 
-    public function getWindowBufferDurationMinutes(IVerifiableEvent $event): int;
+    public function getWindowBufferDurationMinutes(?IVerifiableEvent $event = null): int;
 
-    public function getAlwaysApplyBuffer(IVerifiableEvent $event): bool;
+    public function getAlwaysApplyBuffer(?IVerifiableEvent $event = null): bool;
 
     /**
-     * @param IVerifiableEvent $event
+     * @param IVerifiableEvent|null $event
      * @param DateTimeInterface $date
      * @return IVerifiableEvent[]
      */
-    public function getScheduledEventsForDate(IVerifiableEvent $event, DateTimeInterface $date): array;
+    public function getScheduledEventsForDate(?IVerifiableEvent $event = null, DateTimeInterface $date): array;
 
     /**
-     * @param IVerifiableEvent $event
+     * @param IVerifiableEvent|null $event
      * @param DateTimeInterface $date
      * @return EventWindow[]
      */
-    public function getAvailableWindowsForDate(IVerifiableEvent $event, DateTimeInterface $date): array;
+    public function getAvailableWindowsForDate(?IVerifiableEvent $event = null, DateTimeInterface $date): array;
 }
 

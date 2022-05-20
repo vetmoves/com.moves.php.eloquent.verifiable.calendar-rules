@@ -7,5 +7,5 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEv
 
 interface IRuleMaxAttendees extends IRule
 {
-    public function getMaxAttendees(IVerifiableEvent $event): int;
+    public function getMaxAttendees(?IVerifiableEvent $event = null): int;
 }

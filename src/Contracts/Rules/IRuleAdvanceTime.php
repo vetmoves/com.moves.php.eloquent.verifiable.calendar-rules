@@ -14,7 +14,7 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Enums\AdvanceType;
  */
 interface IRuleAdvanceTime extends IRule
 {
-    public function getAdvanceType(IVerifiableEvent $event): AdvanceType;
+    public function getAdvanceType(?IVerifiableEvent $event = null): AdvanceType;
 
-    public function getAdvanceMinutes(IVerifiableEvent $event): int;
+    public function getAdvanceMinutes(?IVerifiableEvent $event = null): int;
 }
