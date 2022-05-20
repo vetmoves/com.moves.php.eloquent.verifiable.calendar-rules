@@ -17,22 +17,18 @@ trait TRuleWindows
      */
     public function getAvailableWindowsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array
     {
-        $targetDate = Carbon::create($date);
-        $eventDayStart = Carbon::create($this->getOpenTime($event))
-            ->setTimezone($date->getTimezone())
-            ->setTime(0, 0);
+        $pattern = $this->getRecurrencePattern();
 
-        $pattern = $this->getRecurrencePattern($event);
-
-        if (is_null($pattern)
-            ? $eventDayStart != $targetDate->copy()->setTime(0, 0)
-            : !$pattern->includes($date)
+        if (is_null($pattern) ?
+            $date->format('Y-m-d') !== $this->getOpenTime()->format('Y-m-d') :
+            !$pattern->includes($date)
         ) {
             return [];
         }
 
         $currentTime = Carbon::create($this->getOpenTime($event))->setTimezone($date->getTimezone());
         $closeTime = Carbon::create($this->getCloseTime($event))->setTimezone($date->getTimezone());
+        $targetDate = Carbon::create($date)->setTime($currentTime->hour, $currentTime->minute);
 
         if ($pattern) {
             $diff = $currentTime->diff($targetDate);
@@ -95,7 +91,7 @@ trait TRuleWindows
      */
     public function verify(IVerifiable $verifiable): bool
     {
-        $availableWindows = $this->getAvailableWindowsForDate($verifiable, $verifiable->getStartTime());
+        $availableWindows = $this->getAvailableWindowsForDate($verifiable->getStartTime());
 
         $dateFormat = 'Y-m-d H:i:s';
 

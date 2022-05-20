@@ -20,12 +20,7 @@ class TRuleWindowsTest extends TestCase
             60
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(8, $windows);
 
@@ -66,12 +61,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(8, $windows);
 
@@ -109,12 +99,7 @@ class TRuleWindowsTest extends TestCase
             30
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(8, $windows);
 
@@ -153,12 +138,7 @@ class TRuleWindowsTest extends TestCase
             true
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(5, $windows);
 
@@ -190,12 +170,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(8, $windows);
 
@@ -244,12 +219,7 @@ class TRuleWindowsTest extends TestCase
             ]
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(6, $windows);
 
@@ -301,12 +271,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 11:00:00'),
-            Carbon::create('2021-01-01 12:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(6, $windows);
 
@@ -349,12 +314,7 @@ class TRuleWindowsTest extends TestCase
             ]
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 09:00:00'),
-            Carbon::create('2021-01-01 10:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(4, $windows);
 
@@ -391,12 +351,7 @@ class TRuleWindowsTest extends TestCase
             ]
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 09:00:00'),
-            Carbon::create('2021-01-01 10:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(3, $windows);
 
@@ -439,12 +394,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(4, $windows);
 
@@ -469,12 +419,7 @@ class TRuleWindowsTest extends TestCase
             60
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01'));
 
         $this->assertCount(7, $windows);
 
@@ -512,12 +457,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(7, $windows);
 
@@ -555,12 +495,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2021-01-01'))->setFrequency(2)
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-02'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-02'));
 
         $this->assertCount(0, $windows);
     }
@@ -642,12 +577,7 @@ class TRuleWindowsTest extends TestCase
             TEDays::build(Carbon::create('2020-12-31'))
         );
 
-        $event = new TestVerifiableEvent(
-            Carbon::create('2021-01-01 10:00:00'),
-            Carbon::create('2021-01-01 11:00:00')
-        );
-
-        $windows = $rule->getAvailableWindowsForDate($event, Carbon::create('2021-01-01 00:00:00')->shiftTimezone('America/Los_Angeles'));
+        $windows = $rule->getAvailableWindowsForDate(Carbon::create('2021-01-01 00:00:00')->shiftTimezone('America/Los_Angeles'));
 
         $this->assertCount(24, $windows);
 
