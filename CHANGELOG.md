@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.0.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.0.0...2.0.1) (2022-05-20)
+### Bug Fixes
+
+* Update Windows interface ([f1124b](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/f1124b1ed8d5a2ced07bf71cb0ca943792631190))
+
+
+---
+
 ## [2.0.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/1.3.0...2.0.0) (2022-05-20)
 ### ⚠ BREAKING CHANGES
 
