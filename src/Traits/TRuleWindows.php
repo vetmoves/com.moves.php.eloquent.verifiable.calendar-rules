@@ -43,7 +43,7 @@ trait TRuleWindows
 
         $windowDuration = $this->getWindowDurationMinutes($event);
         $bufferDuration = $this->getWindowBufferDurationMinutes($event);
-        $scheduledEvents = $this->getScheduledEventsForDate($event, $date);
+        $scheduledEvents = $this->getScheduledEventsForDate($date, $event);
 
         $windows = [];
 

@@ -82,7 +82,7 @@ class TestRuleWindows implements IRuleWindows
         return $this->alwaysApplyBuffer;
     }
 
-    public function getScheduledEventsForDate(?IVerifiableEvent $event = null, DateTimeInterface $date): array
+    public function getScheduledEventsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array
     {
         return $this->scheduledEvents;
     }
