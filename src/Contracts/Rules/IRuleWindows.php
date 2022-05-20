@@ -34,6 +34,6 @@ interface IRuleWindows extends IRule
      * @param DateTimeInterface $date
      * @return EventWindow[]
      */
-    public function getAvailableWindowsForDate(?IVerifiableEvent $event = null, DateTimeInterface $date): array;
+    public function getAvailableWindowsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array;
 }
 
