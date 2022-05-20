@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.0...2.1.1) (2022-05-20)
+### Bug Fixes
+
+* Fix call to getScheduledEventsForDate ([c87d89](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/c87d892ce0a15de777dd85c5c7c8359f0d8acfa3))
+
+
+---
+
 ## [2.1.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.0.2...2.1.0) (2022-05-20)
 ### Features
 
