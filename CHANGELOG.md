@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.0.2...2.1.0) (2022-05-20)
+### Features
+
+* Add IVerifiableEvent to EventWindow ([925d73](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/925d737f05fc87e28d634f00f71b66b3de88d7a0))
+
+
+---
+
 ## [2.0.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.0.1...2.0.2) (2022-05-20)
 ### Bug Fixes
 
