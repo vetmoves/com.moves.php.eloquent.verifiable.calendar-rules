@@ -3,12 +3,13 @@
 namespace Moves\Eloquent\Verifiable\Rules\Calendar\Support;
 
 use Carbon\Carbon;
+use DateTimeInterface;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
-use DateTimeInterface;
 use JsonSerializable;
+use Moves\Eloquent\Verifiable\Rules\Calendar\Contracts\Verifiables\IVerifiableEvent;
 
-class EventWindow implements Arrayable, Jsonable, JsonSerializable
+class EventWindow implements IVerifiableEvent, Arrayable, Jsonable, JsonSerializable
 {
     /** @var DateTimeInterface $start */
     protected $start;
@@ -30,6 +31,11 @@ class EventWindow implements Arrayable, Jsonable, JsonSerializable
     public function getEndTime(): DateTimeInterface
     {
         return $this->end;
+    }
+
+    public function getAttendees(): array
+    {
+        return [];
     }
 
     public function toArray(): array
