@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.1.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.1...2.1.2) (2022-05-20)
+### Bug Fixes
+
+* Update getAvailableWindowsForDate logic ([00a441](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/00a441fb4963b0c155d9486bf4b0026762ac9ba5))
+
+
+---
+
 ## [2.1.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.0...2.1.1) (2022-05-20)
 ### Bug Fixes
 
