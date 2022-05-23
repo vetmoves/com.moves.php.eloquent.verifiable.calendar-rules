@@ -12,6 +12,24 @@ use Moves\Eloquent\Verifiable\Rules\Calendar\Support\Formatter;
 
 trait TRuleAdvanceTime
 {
+    public function getMinBookableDate(): Carbon
+    {
+        if ($this->getAdvanceType()->equals(AdvanceType::MIN())) {
+            return Carbon::now()->addMinutes($this->getAdvanceMinutes());
+        } else {
+            return Carbon::today();
+        }
+    }
+
+    public function getMaxBookableDate(): ?Carbon
+    {
+        if ($this->getAdvanceType()->equals(AdvanceType::MIN())) {
+            return null;
+        } else {
+            return Carbon::now()->addMinutes($this->getAdvanceMinutes());
+        }
+    }
+
      /**
      * @param IVerifiableEvent $verifiable
      * @return bool

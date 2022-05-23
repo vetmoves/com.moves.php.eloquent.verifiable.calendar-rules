@@ -126,4 +126,32 @@ class TRuleAdvanceTimeTest extends TestCase
 
         $rule->verify($event);
     }
+
+    public function testGetMinBookableDateMin()
+    {
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 0);
+
+        $this->assertLessThan(1, $rule->getMinBookableDate()->diffInSeconds(Carbon::now()));
+    }
+
+    public function testGetMinBookableDateMax()
+    {
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 0);
+
+        $this->assertEquals(Carbon::today(), $rule->getMinBookableDate());
+    }
+
+    public function testGetMaxBookableDateMin()
+    {
+        $rule = new TestRuleAdvanceTime(AdvanceType::MIN(), 0);
+
+        $this->assertNull($rule->getMaxBookableDate());
+    }
+
+    public function testGetMaxBookableDateMax()
+    {
+        $rule = new TestRuleAdvanceTime(AdvanceType::MAX(), 0);
+
+        $this->assertLessThan(1, $rule->getMaxBookableDate()->diffInSeconds(Carbon::now()));
+    }
 }
