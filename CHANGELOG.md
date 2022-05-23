@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.2.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.2...2.2.0) (2022-05-23)
+### Features
+
+* Add helpers to advance and cutoff rules ([12c767](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/12c767daa5ab8ea7eafa61859c2a3ae63fac524d))
+
+
+---
+
 ## [2.1.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.1...2.1.2) (2022-05-20)
 ### Bug Fixes
 
