@@ -4,6 +4,14 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.2.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.2.0...2.2.1) (2022-08-29)
+### Bug Fixes
+
+* Account for daylight savings when listing windows for date ([05259b](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/05259b1708191fe22f7cf313feb8a7b4228592da))
+
+
+---
+
 ## [2.2.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.1.2...2.2.0) (2022-05-23)
 ### Features
 
