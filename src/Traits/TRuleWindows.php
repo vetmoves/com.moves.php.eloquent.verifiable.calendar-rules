@@ -17,6 +17,7 @@ trait TRuleWindows
      */
     public function getAvailableWindowsForDate(DateTimeInterface $date, ?IVerifiableEvent $event = null): array
     {
+        $date = Carbon::create($date);
         $pattern = $this->getRecurrencePattern();
 
         if (is_null($pattern) ?
@@ -26,8 +27,12 @@ trait TRuleWindows
             return [];
         }
 
-        $currentTime = Carbon::create($this->getOpenTime($event))->setTimezone($date->getTimezone());
-        $closeTime = Carbon::create($this->getCloseTime($event))->setTimezone($date->getTimezone());
+        $diff = Carbon::create($this->getOpenTime($event))->diff(Carbon::create($this->getCloseTime($event)));
+
+        $currentTime = Carbon::create($this->getOpenTime($event))
+            ->setTimezone($date->getTimezone())
+            ->setDate($date->year, $date->month, $date->day);
+        $closeTime = $currentTime->copy()->add($diff);
         $targetDate = Carbon::create($date)->setTime($currentTime->hour, $currentTime->minute);
 
         if ($pattern) {
@@ -95,11 +100,14 @@ trait TRuleWindows
 
         $dateFormat = 'Y-m-d H:i:s';
 
+        $verifiableStartTimeUtc = $verifiable->getStartTime()->copy()->setTimezone('UTC')->format($dateFormat);
+        $verifiableEndTimeUtc = $verifiable->getEndTime()->copy()->setTimezone('UTC')->format($dateFormat);
+
         foreach ($availableWindows as $window)
         {
             if (
-                $window->getStartTime()->format($dateFormat) === $verifiable->getStartTime()->format($dateFormat)
-                && $window->getEndTime()->format($dateFormat) === $verifiable->getEndTime()->format($dateFormat)
+                $window->getStartTime()->format($dateFormat) === $verifiableStartTimeUtc
+                && $window->getEndTime()->format($dateFormat) === $verifiableEndTimeUtc
             )
             {
                 return true;
