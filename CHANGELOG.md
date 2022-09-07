@@ -4,6 +4,11 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.2.1...3.0.0) (2022-09-07)
+
+
+---
+
 ## [2.2.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.2.0...2.2.1) (2022-08-29)
 ### Bug Fixes
 
