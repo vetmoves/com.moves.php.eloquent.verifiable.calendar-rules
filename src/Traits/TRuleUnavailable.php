@@ -19,8 +19,7 @@ trait TRuleUnavailable
     public function verify(IVerifiable $verifiable): bool
     {
         $eventStart = Carbon::create($verifiable->getStartTime());
-        $eventEnd = Carbon::create($verifiable->getEndTime())
-            ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
+        $eventEnd = Carbon::create($verifiable->getEndTime());
 
         $fmtEventStart = $eventStart->format(
             __('verifiable_calendar_rules::formats.unavailable.event.date.start')
@@ -39,10 +38,11 @@ trait TRuleUnavailable
             );
         }
 
+        $unavailableDuration = Carbon::create($this->getEndTime($verifiable))
+            ->diff(Carbon::create($this->getStartTime($verifiable)));
         $unavailableStart = Carbon::create($this->getStartTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $unavailableEnd = Carbon::create($this->getEndTime($verifiable))
-            ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
+        $unavailableEnd = Carbon::create($this->getEndTime($verifiable))->add($unavailableDuration);
 
         $fmtUnavailableStart = $unavailableStart->format(
             __('verifiable_calendar_rules::formats.unavailable.date.start')
