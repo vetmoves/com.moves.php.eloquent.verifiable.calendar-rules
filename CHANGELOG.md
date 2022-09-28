@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.0...3.0.1) (2022-09-28)
+
+### Bug Fixes
+
+* Update Unavailable logic for multi-day unavailability (including UTC offset) ([41d0ff](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/41d0ffb47df78438b80e34e6e56bf4627528ea61))
+
+
+---
+
 ## [3.0.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/2.2.1...3.0.0) (2022-09-07)
 
 
