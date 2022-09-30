@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [3.0.4](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.3...3.0.4) (2022-09-30)
+
+### Bug Fixes
+
+* Use verifiable timezone for error message formatting ([567793](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/56779382d2eb102bde9f696839b7e87c7d79d9a3))
+
+
+---
+
 ## [3.0.3](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.2...3.0.3) (2022-09-30)
 
 ### Bug Fixes
