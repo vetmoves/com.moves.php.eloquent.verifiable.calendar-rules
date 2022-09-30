@@ -4,6 +4,16 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [2.2.5](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.4...2.2.5) (2022-09-30)
+
+### Bug Fixes
+
+* Update Unavailable logic for multi-day unavailability (including UTC offset) ([123851](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/1238510aa779ecaf18f5ce086c4ec054d81d4b79), [821bef](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/821bef3b2791fc4c3ec5ac826fa66d7eefb4e9e0), [6d2e92](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/6d2e92a9eb65c49b7949475018676c63db28f8ad), [2fe150](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/2fe150d35e572685b112a7c370ed00d9f9b3a662), [41d0ff](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/41d0ffb47df78438b80e34e6e56bf4627528ea61), [bbdc87](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/bbdc870a10d6a0af1b7add555cc3a1de43cb92c3))
+* Use verifiable timezone for error message formatting ([259f56](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/259f5640567d4ae8a5eebae5f6c90a97f5981030), [567793](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/56779382d2eb102bde9f696839b7e87c7d79d9a3))
+
+
+---
+
 ## [2.2.4](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.2...2.2.4) (2022-09-30)
 
 ### Bug Fixes
