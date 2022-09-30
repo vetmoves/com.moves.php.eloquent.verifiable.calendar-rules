@@ -44,12 +44,16 @@ trait TRuleUnavailable
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
         $unavailableEnd = $unavailableStart->copy()->add($unavailableDuration);
 
-        $fmtUnavailableStart = $unavailableStart->format(
-            __('verifiable_calendar_rules::formats.unavailable.date.start')
-        );
-        $fmtUnavailableEnd = $unavailableEnd->format(
-            __('verifiable_calendar_rules::formats.unavailable.date.end')
-        );
+        $fmtUnavailableStart = $unavailableStart->copy()
+            ->setTimezone($verifiable->getStartTime()->getTimezone())
+            ->format(
+                __('verifiable_calendar_rules::formats.unavailable.date.start')
+            );
+        $fmtUnavailableEnd = $unavailableEnd
+            ->setTimezone($verifiable->getStartTime()->getTimezone())
+            ->format(
+                __('verifiable_calendar_rules::formats.unavailable.date.end')
+            );
 
         if ($unavailableEnd < $unavailableStart) {
             throw new VerifiableRuleConfigurationException(
