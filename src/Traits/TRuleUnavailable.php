@@ -38,8 +38,8 @@ trait TRuleUnavailable
             );
         }
 
-        $unavailableDuration = Carbon::create($this->getEndTime($verifiable))
-            ->diff(Carbon::create($this->getStartTime($verifiable)));
+        $unavailableDuration = Carbon::create($this->getStartTime($verifiable))
+            ->diff(Carbon::create($this->getEndTime($verifiable)));
         $unavailableStart = Carbon::create($this->getStartTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
         $unavailableEnd = $unavailableStart->copy()->add($unavailableDuration);
