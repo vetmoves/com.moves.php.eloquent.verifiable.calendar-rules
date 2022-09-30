@@ -42,7 +42,7 @@ trait TRuleUnavailable
             ->diff(Carbon::create($this->getStartTime($verifiable)));
         $unavailableStart = Carbon::create($this->getStartTime($verifiable))
             ->setDate($eventStart->year, $eventStart->month, $eventStart->day);
-        $unavailableEnd = Carbon::create($this->getEndTime($verifiable))->add($unavailableDuration);
+        $unavailableEnd = $unavailableStart->copy()->add($unavailableDuration);
 
         $fmtUnavailableStart = $unavailableStart->format(
             __('verifiable_calendar_rules::formats.unavailable.date.start')
