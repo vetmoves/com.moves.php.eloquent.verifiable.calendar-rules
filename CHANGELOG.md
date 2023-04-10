@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [4.0.0](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.4...4.0.0) (2023-04-10)
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to Laravel 10 ([e3dcfc](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/e3dcfc1b0f872b3d432d680ebbf5ef9cc3d552c2))
+
+
+---
+
 ## [3.0.4](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/3.0.3...3.0.4) (2022-09-30)
 
 ### Bug Fixes
