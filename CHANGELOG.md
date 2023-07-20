@@ -4,6 +4,15 @@
 All notable changes to this project will be documented in this file.
 <!--- END HEADER -->
 
+## [5.0.0-beta.2](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/4.0.0...5.0.0-beta.2) (2023-07-20)
+
+### ⚠ BREAKING CHANGES
+
+* Update Fowler Recurring Events package ([00b2b8](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/commit/00b2b824be8ba4d04aecb259a1250d178a852000))
+
+
+---
+
 ## [5.0.0-beta.1](https://github.com/vetmoves/com.moves.php.eloquent.verifiable.rules.calendar/compare/4.0.0...5.0.0-beta.1) (2023-07-14)
 
 ### ⚠ BREAKING CHANGES
