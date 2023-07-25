@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4297f623c2b694b71664aeee25adcebc",
+    "content-hash": "89a74ccd2833281cb5cb91ab3f89037f",
     "packages": [
         {
             "name": "brick/math",
@@ -1547,16 +1547,16 @@
         },
         {
             "name": "moves/fowler-recurring-events",
-            "version": "4.0.0-beta.4",
+            "version": "4.0.0-beta.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events.git",
-                "reference": "f784a75b2b4c9bb43dbed233a607543f2278190c"
+                "reference": "48adf9b6641806f718b6713e92f26925fb910bdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/f784a75b2b4c9bb43dbed233a607543f2278190c",
-                "reference": "f784a75b2b4c9bb43dbed233a607543f2278190c",
+                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/48adf9b6641806f718b6713e92f26925fb910bdb",
+                "reference": "48adf9b6641806f718b6713e92f26925fb910bdb",
                 "shasum": ""
             },
             "require": {
@@ -1590,9 +1590,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/issues",
-                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.4"
+                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.6"
             },
-            "time": "2023-07-25T16:34:41+00:00"
+            "time": "2023-07-25T16:57:13+00:00"
         },
         {
             "name": "nesbot/carbon",
