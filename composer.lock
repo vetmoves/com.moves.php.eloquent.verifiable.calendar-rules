@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89a74ccd2833281cb5cb91ab3f89037f",
+    "content-hash": "62e2d9ce2231a62f34881db2a7a3191f",
     "packages": [
         {
             "name": "brick/math",
@@ -699,16 +699,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v10.16.0",
+            "version": "v10.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "7589f09fe0e8735615cf25f0f1807682aac124c1"
+                "reference": "5c93d2795c393b462481179ce42dedfb30cc19b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/7589f09fe0e8735615cf25f0f1807682aac124c1",
-                "reference": "7589f09fe0e8735615cf25f0f1807682aac124c1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5c93d2795c393b462481179ce42dedfb30cc19b5",
+                "reference": "5c93d2795c393b462481179ce42dedfb30cc19b5",
                 "shasum": ""
             },
             "require": {
@@ -895,7 +895,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-07-25T14:31:32+00:00"
+            "time": "2023-07-26T03:30:46+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -1547,16 +1547,16 @@
         },
         {
             "name": "moves/fowler-recurring-events",
-            "version": "4.0.0-beta.6",
+            "version": "4.0.0-beta.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events.git",
-                "reference": "48adf9b6641806f718b6713e92f26925fb910bdb"
+                "reference": "f2b09eddde1795fcd738e7a034495f877d176554"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/48adf9b6641806f718b6713e92f26925fb910bdb",
-                "reference": "48adf9b6641806f718b6713e92f26925fb910bdb",
+                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/f2b09eddde1795fcd738e7a034495f877d176554",
+                "reference": "f2b09eddde1795fcd738e7a034495f877d176554",
                 "shasum": ""
             },
             "require": {
@@ -1590,9 +1590,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/issues",
-                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.6"
+                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.7"
             },
-            "time": "2023-07-25T16:57:13+00:00"
+            "time": "2023-07-26T13:29:50+00:00"
         },
         {
             "name": "nesbot/carbon",
