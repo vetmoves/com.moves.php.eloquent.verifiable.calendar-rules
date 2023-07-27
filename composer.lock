@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef4e2ba7864b261b97b3c9f411d143b6",
+    "content-hash": "69df377230a14c82384d3c5bff2b5408",
     "packages": [
         {
             "name": "brick/math",
@@ -1547,16 +1547,16 @@
         },
         {
             "name": "moves/fowler-recurring-events",
-            "version": "4.0.0-beta.8",
+            "version": "4.0.0-beta.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events.git",
-                "reference": "5439c879a079489ff827d1335346bdead312ddf0"
+                "reference": "c72f00c6a98e78f60e66339b40d26261b31c459e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/5439c879a079489ff827d1335346bdead312ddf0",
-                "reference": "5439c879a079489ff827d1335346bdead312ddf0",
+                "url": "https://api.github.com/repos/vetmoves/com.moves.php.fowler-recurring-events/zipball/c72f00c6a98e78f60e66339b40d26261b31c459e",
+                "reference": "c72f00c6a98e78f60e66339b40d26261b31c459e",
                 "shasum": ""
             },
             "require": {
@@ -1590,9 +1590,9 @@
             ],
             "support": {
                 "issues": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/issues",
-                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.8"
+                "source": "https://github.com/vetmoves/com.moves.php.fowler-recurring-events/tree/4.0.0-beta.9"
             },
-            "time": "2023-07-26T13:37:24+00:00"
+            "time": "2023-07-27T15:56:38+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6815,16 +6815,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.26",
+            "version": "9.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "443bc6912c9bd5b409254a40f4b0f4ced7c80ea1"
+                "reference": "b0a88255cb70d52653d80c890bd7f38740ea50d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
-                "reference": "443bc6912c9bd5b409254a40f4b0f4ced7c80ea1",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/b0a88255cb70d52653d80c890bd7f38740ea50d1",
+                "reference": "b0a88255cb70d52653d80c890bd7f38740ea50d1",
                 "shasum": ""
             },
             "require": {
@@ -6880,7 +6880,8 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.26"
+                "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.27"
             },
             "funding": [
                 {
@@ -6888,7 +6889,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-03-06T12:58:08+00:00"
+            "time": "2023-07-26T13:44:30+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
